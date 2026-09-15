@@ -27,6 +27,15 @@
       "sha": "67d7df4763ba02e64087bb81e72a57fffc487f10",
       "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/QuestAWAY.csv",
       "deleteKeyHash": "2c3772fc94c51b3ea407adfdf5a22213b8a14b249d395083349c2869721545ec"
+    },
+    {
+      "fileName": "DeserokUtils.csv",
+      "pluginName": "DeserokUtils",
+      "owner": "天使",
+      "updated": "2026-09-15",
+      "sha": "0881d082c3c351cef271afa31102990b57cd941e",
+      "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/DeserokUtils.csv",
+      "deleteKeyHash": "df92a223edeb80a4a491947932cffcfcd02de4329954dbb25002225176088a23"
     }
   ]
 }
