@@ -54,6 +54,15 @@
       "sha": "b81f6b8433a522263e5afb840648c27e71578c2c",
       "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/WaymarkStudio.csv",
       "deleteKeyHash": "3bd550e92ccfcec93904e34a9392afac041ddaf847f67424f159f6dc2600dcd6"
+    },
+    {
+      "fileName": "SomethingNeedDoing.csv",
+      "pluginName": "SomethingNeedDoing",
+      "owner": "天使",
+      "updated": "2026-09-15",
+      "sha": "a59857143f545bc182dba7216e45bad2a9d330ed",
+      "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/SomethingNeedDoing.csv",
+      "deleteKeyHash": "9cc08c0aae148424527a2c0979573ec51f7c681f802d07107dd50e76aa6b1371"
     }
   ]
 }
