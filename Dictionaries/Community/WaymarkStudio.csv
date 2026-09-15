@@ -1,0 +1,2 @@
+Plugin,Menu,Section,Type,English,Japanese
+"WaymarkPresetPlugin","","","","Copies the current config file to a backup folder in the Dalamud 'pluginConfigs' directory.","現在の構成ファイルを Dalamud の「pluginConfigs」ディレクトリ内のバックアップ フォルダーにコピーします。"
