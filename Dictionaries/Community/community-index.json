@@ -45,6 +45,15 @@
       "sha": "dcbf1485692242e20c0d4555ad80619c8f26a552",
       "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/BeastMasterHelper.csv",
       "deleteKeyHash": "172a207c85a5ee828facf3409aec40732454d9d75739d451f79aad4830312358"
+    },
+    {
+      "fileName": "WaymarkStudio.csv",
+      "pluginName": "WaymarkStudio",
+      "owner": "天使",
+      "updated": "2026-09-15",
+      "sha": "43ab69f1f5e9730b4a2dac428bf887027c86ed83",
+      "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/WaymarkStudio.csv",
+      "deleteKeyHash": "3bd550e92ccfcec93904e34a9392afac041ddaf847f67424f159f6dc2600dcd6"
     }
   ]
 }
