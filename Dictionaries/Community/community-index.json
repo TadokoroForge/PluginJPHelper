@@ -36,6 +36,15 @@
       "sha": "0881d082c3c351cef271afa31102990b57cd941e",
       "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/DeserokUtils.csv",
       "deleteKeyHash": "df92a223edeb80a4a491947932cffcfcd02de4329954dbb25002225176088a23"
+    },
+    {
+      "fileName": "BeastMasterHelper.csv",
+      "pluginName": "BeastMasterHelper",
+      "owner": "天使",
+      "updated": "2026-09-15",
+      "sha": "dcbf1485692242e20c0d4555ad80619c8f26a552",
+      "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/BeastMasterHelper.csv",
+      "deleteKeyHash": "172a207c85a5ee828facf3409aec40732454d9d75739d451f79aad4830312358"
     }
   ]
 }
