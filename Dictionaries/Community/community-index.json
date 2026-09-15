@@ -63,6 +63,15 @@
       "sha": "a59857143f545bc182dba7216e45bad2a9d330ed",
       "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/SomethingNeedDoing.csv",
       "deleteKeyHash": "9cc08c0aae148424527a2c0979573ec51f7c681f802d07107dd50e76aa6b1371"
+    },
+    {
+      "fileName": "TextToTalk.csv",
+      "pluginName": "TextToTalk",
+      "owner": "天使",
+      "updated": "2026-09-15",
+      "sha": "c312abccc12454af60c1533dac7d456b13371674",
+      "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/TextToTalk.csv",
+      "deleteKeyHash": "413ff6a9592ae2c4d0d19ac329223b7b2d85d09119fa0cf95fccffbf6ff4cb45"
     }
   ]
 }
