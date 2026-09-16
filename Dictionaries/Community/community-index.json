@@ -81,6 +81,15 @@
       "sha": "27973bc1778d08a3b42a758d42bb27b22fa44985",
       "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/MarketBoardPlugin_v0.1.csv",
       "deleteKeyHash": "e828adf171c7b16d70839a101b9bd4e4c29e88ad5ff9ac20f138b622c1b6b907"
+    },
+    {
+      "fileName": "NearbyPlayerList.csv",
+      "pluginName": "NearbyPlayerList",
+      "owner": "天使",
+      "updated": "2026-09-16",
+      "sha": "c46d42006868d0c59ade6c88fd648b90511785d2",
+      "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/NearbyPlayerList.csv",
+      "deleteKeyHash": "45566afe1d0bce82b7eb10913a053628ee08211f17299033871b7fe21a8fb92e"
     }
   ]
 }
