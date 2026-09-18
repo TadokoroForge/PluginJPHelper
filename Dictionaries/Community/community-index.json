@@ -90,6 +90,15 @@
       "sha": "c46d42006868d0c59ade6c88fd648b90511785d2",
       "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/NearbyPlayerList.csv",
       "deleteKeyHash": "45566afe1d0bce82b7eb10913a053628ee08211f17299033871b7fe21a8fb92e"
+    },
+    {
+      "fileName": "CBT(Automaton).csv",
+      "pluginName": "Automaton",
+      "owner": "CBT",
+      "updated": "2026-09-18",
+      "sha": "a4db3483e9c05c2f062664d11295d87b6df74cca",
+      "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/CBT(Automaton).csv",
+      "deleteKeyHash": "3378f853b8e90fc16cdf454ce51329c16ce2c66aa0a7fb544fb8fb7c1de5d56b"
     }
   ]
 }
