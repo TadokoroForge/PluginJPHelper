@@ -1,0 +1,203 @@
+﻿Plugin,Menu,Section,Type,English,Japanese
+Saucy,,,, by Puni.sh, by Puni.sh
+Saucy,,,, — daily 3×3 scratcher,— 毎日の3×3スクラッチくじ
+Saucy,,,, — dodge the falling slices,— 落下攻撃を回避
+Saucy,,,, — Map navigation,— マップ移動
+Saucy,,,, — no games played,— プレイ回数なし
+Saucy,,,, — Optional integrations,— オプション連携
+Saucy,,,, — Placed bell must be in range,— 設置済みの呼び鈴が範囲内に必要
+Saucy,,,, — punch the cactuar,— サボテンダーをパンチ
+Saucy,,,, — ride shooting minigame,— ライドシューティング
+Saucy,,,, — statistical safe spot,— 統計上の安全地帯
+Saucy,,,, — swing the hatchet,— 手斧を振る
+Saucy,,,, — weekly 4-digit raffle,— 毎週の4桁くじ
+Saucy,,,,(none),（なし）
+Saucy,,,,(none)##ClearDeckSelection,(なし)##ClearDeckSelection
+Saucy,,,,About,情報
+Saucy,,,,"Accepts match invites, selects a deck, and plays through rematches. Turn on before or during match prep.",試合への招待を受け入れ、デッキを選択し、再試合までプレイします。試合の準備前または準備中にオンにします。
+Saucy,,,,"After playing for a while, pause starting new games for a short break. Current games can still finish.",しばらくプレイした後、新しいゲームの開始を一時停止して少し休憩します。現在のゲームはまだ終了できます。
+Saucy,,,,Air Force One,出撃！ エアフォースパイロット
+Saucy,,,,Always double down while the minigame timer is above this. Cash out when there is not enough time left for another round.,ミニゲームのタイマーがこれを超えている間は常にダブルダウンします。次のラウンドに十分な時間が残っていない場合はキャッシュアウトしてください。
+Saucy,,,,Any Way the Wind Blows,暴風！ はないきフンガー
+Saucy,,,,Auto-pick best deck,最適なデッキを自動選択
+Saucy,,,Text/RenderTextWrapped,AutoRetainer,AutoRetainer
+Saucy,,,,Boss Mod,Boss Mod
+Saucy,,,,Break length (minutes),休憩時間（分）
+Saucy,,,,Bruisings,
+Saucy,,,,Brutals,
+Saucy,,,TabItem,Cache,キャッシュ
+Saucy,,,,Cactuar,
+Saucy,,,,Card resale value,カード売却額
+Saucy,,,,Cards won,獲得カード数
+Saucy,,,,Cashes out at the next double-down and disables automation after the reward.,次のダブルダウン時にキャッシュアウトされ、報酬後の自動化が無効になります。
+Saucy,,,,Choose when Saucy stops playing. On plugin load no option is selected and Saucy rematches until automation is disabled.,Saucyを停止する条件を選択します。プラグイン起動時は停止条件が選ばれておらず、自動化をOFFにするまで再戦を続けます。
+Saucy,,,,Clear deck cache for this character,このキャラクターのデッキキャッシュをクリア
+Saucy,,,,Collect prizes at the Cactpot cashier yourself. Saucy then paths you to the Jumbo broker and handles ticket purchase dialogue and confirms.,Cactpot レジで賞品を自分で受け取ります。次に、Saucy はユーザーを Jumbo ブローカーに導き、チケット購入ダイアログを処理して確認します。
+Saucy,,,,"Combat Job Settings X0.1.20
+状態: ON
+左クリック: 開く
+右クリック: 設定（対応時）
+ホイール押し込み: ON/OFF切替",
+Saucy,,,Selectable,Cuff-a-Cur,カフ ア カー
+Saucy,,,,"Cuff-a-Cur and Out on a Limb only. When a placed summoning bell is in range and AutoRetainer reports retainers ready, Saucy finishes the current game, opens the bell, runs waits for Autoretainer to finish, then resumes.",カフ・ア・カーとアウト・オン・ア・リムのみ。配置された召喚ベルが範囲内にあり、AutoRetainer がリテイナーの準備ができたと報告すると、Saucy は現在のゲームを終了し、ベルを開いて、Autoretainer が終了するのを待って実行し、再開します。
+Saucy,,,,"Dalamud Log Extractor
+状態: ON
+左クリック: 開く
+右クリック: 設定（対応時）
+ホイール押し込み: ON/OFF切替",
+Saucy,,,Text/RenderTextWrapped,Deck,デッキ
+Saucy,,,,Default##step,
+Saucy,,,Text/RenderTextWrapped,Dependencies,依存プラグイン
+Saucy,,,,Designed by Wah,デザイン：Wah
+Saucy,,,BeginComboLabel/RenderText,Difficulty,難易度
+Saucy,,,,Discord,
+Saucy,,,,Draws,引き分け
+Saucy,,,,Draws slice and AoE markers during the GATE.,GATE中にスライスマーカーとAoEマーカーを描画します。
+Saucy,,,,Duty Finder ready also cashes out but leaves automation enabled.,コンテンツファインダーが突入可能になった場合も精算しますが、自動化はONのまま維持します。
+Saucy,,,,Enable,有効
+Saucy,,,,Enable##AirForce,
+Saucy,,,,Enable##Jumbo,
+Saucy,,,,Enable##Mini,
+Saucy,,,,Enable##Slice,
+Saucy,,,,Enable##Wind,
+Saucy,,,,Farm all NPC cards once,NPCカードを一通り集める
+Saucy,,,,Fixed match count,対戦回数を指定
+Saucy,,,,Game recommended uses FFXIV's built-in deck suggestion for the current match (not Saucy sims).,「ゲーム推奨」は、Saucyのシミュレーションではなく、現在の対戦に対するFFXIV標準のデッキ提案を使用します。
+Saucy,,,,Game recommended##GameRecommendedDeck,ゲーム推奨##GameRecommendedDeck
+Saucy,,,,Games,ゲーム数
+Saucy,,,Text/RenderTextWrapped,GATES,G.A.T.E.
+Saucy,,,,Gold Saucer card search panels,ゴールドソーサーのカード検索パネル
+Saucy,,,,Hold Ctrl to reset stats.,Ctrl キーを押したままにして統計をリセットします。
+Saucy,,,,Hold Ctrl while clicking to clear the cache for this character.,Ctrl キーを押しながらクリックすると、このキャラクターのキャッシュがクリアされます。
+Saucy,,,Text/RenderTextWrapped,Installed,導入済み
+Saucy,,,,"Join our Discord community for project announcements, updates, and support.",
+Saucy,,,,Jumbo Cactpot,ジャンボ カクトポット
+Saucy,,,Text/RenderTextWrapped,Lifestream,Lifestream
+Saucy,,,,Lifetime,累計
+Saucy,,,,Log out when run completes,実行完了時にログアウト
+Saucy,,,,"Logs out of the game when a run finishes: fixed match count reaches zero, card drop mode triggers, or card farm completes.",実行が終了すると、ゲームからログアウトします。固定一致カウントがゼロに達した場合、カード ドロップ モードがトリガーされた場合、またはカード ファームが完了した場合です。
+Saucy,,,,Losses,敗北
+Saucy,,,Text/RenderTextWrapped,MACHINES,筐体ゲーム
+Saucy,,,,Main,メイン
+Saucy,,,,Metric,項目
+Saucy,,,,MGP won,獲得MGP
+Saucy,,,,Mico Reed @ Yojimbo — no cached decks,Mico Reed @ Yojimbo — キャッシュされたデッキなし
+Saucy,,,,Min seconds for another round,次のラウンドの最小秒数
+Saucy,,,Selectable/Text/RenderTextWrapped,Mini-Cactpot,ミニくじテンダー
+Saucy,,,,Morbol,
+Saucy,,,,Most played NPC,最多対戦NPC
+Saucy,,,,Most won card,最多獲得カード
+Saucy,,,,Mount roulette,マウント・ルーレット
+Saucy,,,,Mount used before vnavmesh pathing to Triple Triad NPCs.,トリプルトライアドNPCへvnavmeshで移動する前に使用するマウントです。
+Saucy,,,,No optimized decks saved for this character yet.,このキャラクターには、まだ最適化デッキが保存されていません。
+Saucy,,,,No stop condition — runs until automation is disabled.,停止条件なし — 自動化をOFFにするまで実行します。
+Saucy,,,,Notifications,通知
+Saucy,,,,Number selection,番号選択
+Saucy,,,,Open window when challenging an NPC,NPCへ対戦を挑んだときにウィンドウを開く
+Saucy,,,,Optional plugin for automatic dodging during the GATE. Overlays still work without it.,GATE 中の自動回避用のオプションの プラグイン。オーバーレイはそれがなくても機能します。
+Saucy,,,,Optional plugin for automatic movement to the safe spot. Overlays still work without it.,オプションの プラグイン により、安全な場所への自動移動が可能になります。オーバーレイはそれがなくても機能します。
+Saucy,,,,"Optional plugins for pathing to NPCs on the map, teleporting when needed, and starting unlock quests from Saucy.",マップ上の NPC へのパス、必要に応じてテレポート、Saucy からクエストのロック解除を開始するためのオプションのプラグイン。
+Saucy,,,Text/RenderTextWrapped,Options,設定
+Saucy,,,,OTHER GAMES,その他のゲーム
+Saucy,,,,Out on a Limb,アウト・オン・ア・リム
+Saucy,,,,Out on a Limb マシンで有効にすると、自動的に実行されます。,
+Saucy,,,,Pathfinds you onto the statistical safe spot during the GATE.,G.A.T.E.中、統計上の安全地帯まで自動移動します。
+Saucy,,,,Pause when retainers are ready (bell nearby),リテイナー帰還時に一時停止（呼び鈴が近くにある場合）
+Saucy,,,,Per Hour,1時間あたり
+Saucy,,,,"Picks a deck at deck select. Default: highest opening win % among your profile decks. If none of those decks have 5 cards, Saucy uses the game's Recommended button.",デッキ選択時に使用するデッキを決めます。既定ではプロフィールデッキをシミュレーションし、初手時点の勝率が最も高いデッキを選択します。5枚揃ったプロフィールデッキがない場合は、ゲーム標準の「おすすめ」を使用します。
+Saucy,,,,Play sound when run completes,実行完了時に通知音を鳴らす
+Saucy,,,,Play time before break (minutes),休憩までのプレイ時間（分）
+Saucy,,,,Plays Mini Cactpot automatically when you open the daily scratcher at the Gold Saucer.,ゴールドソーサーでミニくじテンダーを開くと、自動でプレイします。
+Saucy,,,,Provides the Slice is Right boss module (hazard zones) and the VBM AI preset Saucy activates during the GATE. Keep the Gold Saucer Slice is Right module enabled in Boss Mod settings.,Slice is Right ボス モジュール (ハザード ゾーン) を提供し、VBM AI プリセット Saucy が GATE 中にアクティブになります。 Boss Mod 設定で Gold Saucer Slice is Right モジュールを有効にしておきます。
+Saucy,,,,Published and developed with ,公開・開発：
+Saucy,,,,Punishings,
+Saucy,,,Text/RenderTextWrapped,Questionable,Questionable
+Saucy,,,,Random##JumboNumbers,ランダム##JumboNumbers
+Saucy,,,,Repository,リポジトリ
+Saucy,,,,Reset Lifetime,累計をリセット
+Saucy,,,,Reset Session,セッションをリセット
+Saucy,,,,Run mode,実行モード
+Saucy,,,,Runs automatically when enabled at the Out on a Limb machine.,Out on a Limb マシンで有効にすると、自動的に実行されます。
+Saucy,,,,Runs automatically when enabled. Plays the Air Force One ride-shooting minigame for you.,有効にすると自動的に実行されます。エア フォース ワンのライド シューティング ミニゲームをプレイします。
+Saucy,,,,Runs automatically when enabled. Start the minigame at the Gold Saucer punching machine.,有効にすると自動的に実行されます。ゴールドソーサーパンチングマシンでミニゲームを開始します。
+Saucy,,,,"Saucy
+状態: ON
+左クリック: 開く
+右クリック: 設定（対応時）
+ホイール押し込み: ON/OFF切替",
+Saucy,,,,Saucy - 2.1.2.2,
+Saucy,,,,Saucy theme,Saucy テーマ
+Saucy,,,,Saucy テーマ###Saucy theme,
+Saucy,,,,Select deck,デッキを選択
+Saucy,,,,Session,セッション
+Saucy,,,,"Shows a searchable card list beside the Gold Saucer card UI, including Edit Deck (TriadBuddy-style [No.1] ordering). Also shows NPC search on the main card collection screen.",ゴールドソーサーのカードUIの横にデッキ編集（TriadBuddyスタイル[No.1]の並び順）を含む検索可能なカードリストを表示します。メインのカード収集画面にもNPC検索が表示されます。
+Saucy,,,,Shows the statistical safe spot during the GATE.,GATE 中の統計上の安全なスポットを示します。
+Saucy,,,,Slice is Right,一閃！ 斬魔・デ・三昧
+Saucy,,,,Source Code,ソースコード
+Saucy,,,,Spacing between probed cursor positions when searching for the sweet spot. Smaller = more precise but slower; the default works for most setups.,スイート スポットを検索する際のプローブされたカーソル位置間の間隔。小さい = 精度は高くなりますが、速度が遅くなります。デフォルトはほとんどのセットアップで機能します。
+Saucy,,,,Specific numbers##JumboNumbers,指定番号##JumboNumbers
+Saucy,,,,Start Triple Triad unlock quests from Saucy card and NPC search.,SaucyカードとNPC検索からトリプルトライアドアンロッククエストを開始します。
+Saucy,,,,Stats,統計
+Saucy,,,,Step,刻み幅
+Saucy,,,,Stop after first card drop,最初のカード入手後に停止
+Saucy,,,,Stop at next double-down,次のダブルダウンで停止
+Saucy,,,,Stops queuing new games while Duty Finder is ready.,コンテンツファインダーが突入可能な間は、新しいゲームを開始しません。
+Saucy,,,,Stops rematching while Duty Finder is ready.,コンテンツファインダーが突入可能な間は、再戦しません。
+Saucy,,,,Take a break,休憩する
+Saucy,,,,Teleport to the nearest aetheryte before pathing when the NPC is far away or in another zone.,NPCが遠い、または別エリアにいる場合は、移動前に最寄りのエーテライトへテレポします。
+Saucy,,,,"TextAdvance
+状態: OFF
+左クリック: 開く
+右クリック: 設定（対応時）
+ホイール押し込み: ON/OFF切替",
+Saucy,,,,Ticket 1 (100 MGP),チケット 1 (100 MGP)
+Saucy,,,,Ticket 2 (150 MGP),チケット 2 (150 MGP)
+Saucy,,,,Ticket 3 (200 MGP),チケット 3 (200 MGP)
+Saucy,,,BeginComboPreview,Titan,タイタン
+Saucy,,,Text/RenderTextWrapped,Travel,移動
+Saucy,,,,Triple Triad,トリプルトライアド
+Saucy,,,Text/RenderTextWrapped,Tuning,調整
+Saucy,,,Selectable,UFO？,UFO？
+Saucy,,,,"Use ""Fixed match count"" below to stop after a set number of games.",指定回数で停止する場合は、下の「対戦回数を指定」を使用します。
+Saucy,,,DrawListAddTextFont,v2.1.2.2,v2.1.2.2
+Saucy,,,Text/RenderTextWrapped,vnavmesh,vnavmesh
+Saucy,,,,Walk to Triple Triad NPCs from Saucy map links after you arrive in the zone.,対象エリア到着後、SaucyのマップリンクからトリプルトライアドNPCまで徒歩で移動します。
+Saucy,,,,"Walk up to the Out on a Limb machine, set how many games to play, and Saucy runs them.",アウト・オン・ア・リムの筐体前でプレイ回数を設定すると、Saucyが自動で実行します。
+Saucy,,,,Wind Blows,暴風！ はないきフンガー
+Saucy,,,,Wins,勝利
+Saucy,,,,"Wrath Combo
+状態: ON
+左クリック: 開く
+右クリック: 設定（対応時）
+ホイール押し込み: ON/OFF切替",
+Saucy,,,,— 斧を振るう,
+Saucy,,,,— 設置されたベルは範囲内にある必要があります,
+Saucy,,,,コスモ・アームドウェポン改,
+Saucy,,,,コンテンツファインダー の準備ができている間、新しいゲームのキューを停止します。,
+Saucy,,,,コンテンツファインダー もキャッシュアウト可能ですが、自動化は有効のままです。,
+Saucy,,,,プロジェクトのお知らせ、更新情報、サポートについてはDiscordコミュニティへ参加してください。,
+Saucy,,,,マッチ数を修正###Fixed match count,
+Saucy,,,,リテイナーの準備ができたら一時停止します（ベルが近くにある）###Pause when retainers are ready (bell nearby),
+Saucy,,,,ワーによって設計されました,
+Saucy,,,,他のゲーム,
+Saucy,,,,休憩を取ってください###Take a break,
+Saucy,,,,停止条件なし — 自動化が無効になるまで実行されます。,
+Saucy,,,,公開・開発：,
+Saucy,,,,孤立無援の状態で,
+Saucy,,,,有効###Enable,
+Saucy,,,,次のダブルダウンで停止###Stop at next double-down,
+Saucy,,,,次のダブルダウン時にキャッシュアウトされ、報酬後の自動化が無効になります。,
+Saucy,,,,"次のプラグインは Wrath Combo (JA) と競合することが知られています。
+
+- Rotation Solver Reborn v7.5.6.9
+
+予期しない挙動や不具合を防ぐため、これらのプラグイン、またはそのローテーション機能を無効にすることを推奨します。",
+Saucy,,,RenderTextWrapped,通知,通知
+Saucy,,,,魔導アーマー,
+Saucy,,,,黒チョコボ,
+Saucy,,,Text/RenderTextWrapped,"At match prep, builds a deck from your owned cards when no valid cache or existing ""NPC (Saucy)"" profile deck fits this NPC and rules. Rebuilds if you have gained 5 or more new cards since the last build for that NPC. Saves to profile slot 5 and selects it. Cannot be combined with Use cached deck.",対戦準備時、このNPCとルールに合う有効なキャッシュや既存の「NPC (Saucy)」プロフィールデッキがない場合、所持カードからデッキを作成します。そのNPC向けに前回作成してから新しいカードを5枚以上入手している場合は再構築します。プロフィールスロット5へ保存して選択します。「利用可能ならキャッシュ済みデッキを使用」とは併用できません。
+Saucy,,,Text/RenderTextWrapped,"At match prep, loads a matching cached deck into profile slot 5 when one exists for this NPC and rules. Auto-pick still sims your profile decks and picks the highest opening win %. Cannot be combined with Build optimized deck.",対戦準備時、このNPCとルールに合うキャッシュ済みデッキがあればプロフィールスロット5へ読み込みます。自動選択では引き続きプロフィールデッキをシミュレーションし、初手時点の勝率が最も高いデッキを選びます。「最適化デッキを作成」とは併用できません。
+Saucy,,,Checkbox/RenderText,Build optimized deck,最適化デッキを作成
+Saucy,,,Text/RenderTextWrapped,Default uses the game's Mount Roulette general action. Pick a mount to always summon that one before map navigation.,既定ではゲーム標準の「マウント・ルーレット」を使用します。特定のマウントを選ぶと、マップ移動前に必ずそのマウントを呼び出します。
+Saucy,,,Text/RenderTextWrapped,No complete profile decks — using game recommended,5枚揃ったプロフィールデッキがないため、ゲーム推奨デッキを使用
+Saucy,,,Checkbox/RenderText,Use cached deck if available,利用可能ならキャッシュ済みデッキを使用
