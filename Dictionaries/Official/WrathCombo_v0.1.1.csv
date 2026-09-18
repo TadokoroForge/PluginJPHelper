@@ -1,0 +1,153 @@
+﻿Plugin,Menu,Section,Type,English,Japanese
+WrathCombo,,,Text/RenderTextWrapped,   -   Penalty Lockout Window,   -   ペナルティ無効化時間
+WrathCombo,,,Text/RenderTextWrapped,Add to the Stack:,優先リストに追加:
+WrathCombo,,,Button,Additional custom action icons by alexisoffline,alexisofflineによる追加カスタムアクションアイコン
+WrathCombo,,,Selectable,Any Cleansable Ally,解除可能な味方
+WrathCombo,,,Selectable,Any DPS,DPS
+WrathCombo,,,Text/RenderTextWrapped/Selectable,Any Healer,ヒーラー
+WrathCombo,,,Text/RenderTextWrapped,Any Healer   >   Any Tank   >   Any Raiser   >   Any Party Member,ヒーラー > タンク > 蘇生可能ジョブ > パーティメンバー
+WrathCombo,,,Selectable,Any Healer (If None Alive),ヒーラー（生存者がいない場合）
+WrathCombo,,,Selectable,Any Magical DPS,遠隔魔法DPS
+WrathCombo,,,Selectable,Any Melee DPS,近接DPS
+WrathCombo,,,Selectable,Any Non Party Member,パーティ外メンバー
+WrathCombo,,,Text/RenderTextWrapped/Selectable,Any Party Member,パーティメンバー
+WrathCombo,,,Selectable,Any Phys Range DPS,遠隔物理DPS
+WrathCombo,,,Selectable,Any Pure Healer,ピュアヒーラー
+WrathCombo,,,Text/RenderTextWrapped/Selectable,Any Raiser,蘇生可能ジョブ
+WrathCombo,,,Selectable,Any Raiser (If None Alive),蘇生可能ジョブ（生存者がいない場合）
+WrathCombo,,,Selectable,Any Raiser DPS,蘇生可能DPS
+WrathCombo,,,Selectable,Any Raiser DPS (If None Alive),蘇生可能DPS（生存者がいない場合）
+WrathCombo,,,Selectable,Any Ranged DPS,遠隔DPS
+WrathCombo,,,Selectable,Any Selfish DPS,自己完結型DPS
+WrathCombo,,,Selectable,Any Shield Healer,バリアヒーラー
+WrathCombo,,,Selectable,Any Support,支援ジョブ
+WrathCombo,,,Text/RenderTextWrapped/Selectable,Any Tank,タンク
+WrathCombo,,,Selectable,Any Tank (If None Alive),タンク（生存者がいない場合）
+WrathCombo,,,Checkbox/RenderText,AoE DPS##Custom1000001,範囲DPS##Custom1000001
+WrathCombo,,,Checkbox/RenderText,AoE Heals##Custom1000003,範囲回復##Custom1000003
+WrathCombo,,,Text/RenderTextWrapped,Auto-Mode,自動モード
+WrathCombo,,,Text/RenderTextWrapped,Auto-Rotation Disable,自動ローテーションOFF
+WrathCombo,,,Text/RenderTextWrapped,Auto-Rotation Enable,自動ローテーションON
+WrathCombo,,,Text/RenderTextWrapped,Auto-Rotation Toggle,自動ローテーション切替
+WrathCombo,,,Checkbox/RenderText,Basic Combo###BST_Basic_Combo,基本コンボ###BST_Basic_Combo
+WrathCombo,,,Checkbox/RenderText,Battlehorn Lockout Feature###BST_Battlehorn_Lockout,バトルホルン使用制限###BST_Battlehorn_Lockout
+WrathCombo,,,Checkbox/RenderText,Borrow Feature###BST_Borrow_Feature,借用アビリティ置換###BST_Borrow_Feature
+WrathCombo,,,Checkbox/RenderText,Capture Helper###BST_Capture_Helper,捕獲補助###BST_Capture_Helper
+WrathCombo,,,Text/RenderTextWrapped,"Click this dropdown to open the list of available Target options.
+Click any entry to add it to your Custom Stack, at the bottom.
+There is a Textbox that says 'Filter...' at the top, type into this to search the list.","このプルダウンを開くと、利用可能なターゲット候補が表示されます。
+項目をクリックすると、下部のカスタム優先リストへ追加されます。
+上部の「Filter...」欄へ入力すると候補を絞り込めます。"
+WrathCombo,,,Text/RenderTextWrapped,Conflicting Combo,競合するコンボ
+WrathCombo,,,Selectable,Custom Actions,カスタムアクション
+WrathCombo,,,Text/RenderTextWrapped,Disables auto-rotation.,自動ローテーションを無効にします。
+WrathCombo,,,Checkbox/RenderText,Don't Override Icons with Job Actions (drag action to hotbar again to take effect),ジョブアクションでアイコンを上書きしない（反映にはホットバーへ再配置）
+WrathCombo,,,Text/RenderTextWrapped,Enables auto-rotation.,自動ローテーションを有効にします。
+WrathCombo,,,Checkbox/RenderText,Experimental HP Check Feature##UseExperimentalHP34,試験的HPチェック機能##UseExperimentalHP34
+WrathCombo,,,Selectable,Field-MouseOver Target,フィールド上のマウスオーバー対象
+WrathCombo,,,Selectable,Focus Target,フォーカスターゲット
+WrathCombo,,,Selectable,Hard Target,現在のターゲット
+WrathCombo,,,CollapsingHeaderPtr,Heal Stack Customization Options  ,回復優先順のカスタマイズ  
+WrathCombo,,,Checkbox/RenderText,Instinctual Combo###BST_Instinctual_Combo,本能コンボ###BST_Instinctual_Combo
+WrathCombo,,,Checkbox/RenderText,Intentional Combo###BST_Intentional_Combo,意図コンボ###BST_Intentional_Combo
+WrathCombo,,,Selectable,Kardion Target,カルディア対象
+WrathCombo,,,Selectable,Last Hard Target,直前のターゲット
+WrathCombo,,,Selectable,Last Hostile Hard Target,直前の敵対ターゲット
+WrathCombo,,,Text/RenderTextWrapped,"Locks out Capture if your current target is either not an eligible pet for capture, or you already have it unlocked. Disclaimer: May not be perfect. Detection methods are hypothetical at best.",現在の対象が捕獲可能な魔獣ではない、またはすでに解放済みの場合は「捕獲」を使用しないようにします。判定は完全ではなく、誤判定する場合があります。
+WrathCombo,,,Text/RenderTextWrapped,Locks out using battlehorns whilst in combat and you already have a beast out. This feature may help doing dungeon runs where you'll be swapping your beasts a lot between pulls and don't want them to go on cooldown.,戦闘中かつ魔獣を呼び出している間、バトルホルンの使用を制限します。IDなどで戦闘の合間に頻繁に魔獣を入れ替える場合、不要なリキャスト発生を防ぐのに役立ちます。
+WrathCombo,,,Selectable,Party Member 1,パーティメンバー1
+WrathCombo,,,Selectable,Party Member 2,パーティメンバー2
+WrathCombo,,,Selectable,Party Member 3,パーティメンバー3
+WrathCombo,,,Selectable,Party Member 4,パーティメンバー4
+WrathCombo,,,Selectable,Party Member 5,パーティメンバー5
+WrathCombo,,,Selectable,Party Member 6,パーティメンバー6
+WrathCombo,,,Selectable,Party Member 7,パーティメンバー7
+WrathCombo,,,Selectable,Party Member 8,パーティメンバー8
+WrathCombo,,,Text/RenderTextWrapped,Plugin(s) Detected!,プラグインを検出しました！
+WrathCombo,,,Selectable,PvE 機能,PvE 機能
+WrathCombo,,,Selectable,PvP 機能,PvP 機能
+WrathCombo,,,CollapsingHeaderPtr,Raise Stack Customization Options,蘇生優先順のカスタマイズ
+WrathCombo,,,Text/RenderTextWrapped,"Replaces Avalanche Axe, Mistral Axe, Spinning Axe and Gale Axe with Trick when it's ready. Locks out the actions if Trick is the wrong affinity or until ready to complete an Instinctual Combo. Order of actions prioritises getting to 2 Mastered Instinct stacks and 1 Natural Instinct stack.",Avalanche Axe、Mistral Axe、Spinning Axe、Gale Axeを、使用可能時にTrickへ置き換えます。Trickの属性が合わない場合や、本能コンボを完了できる状態になるまでは対象アクションを使用しません。行動順はMastered Instinctを2スタック、Natural Instinctを1スタック確保することを優先します。
+WrathCombo,,,Text/RenderTextWrapped,Replaces Axeblade Bite with the basic combo chain.,Axeblade Biteを基本コンボ一式に置き換えます。
+WrathCombo,,,Text/RenderTextWrapped,"Replaces Borrow with your beast's borrowed ability. May make it trickier to swap borrows in a pinch, use cautiously.",Borrowを現在の魔獣から借用したアビリティへ置き換えます。緊急時に借用アビリティを切り替えにくくなる場合があるため、注意して使用してください。
+WrathCombo,,,Text/RenderTextWrapped,Replaces Smash Axe with  a full one-button rotation. This is the ideal option for newcomers to the job.,Smash Axeを1ボタンのフルローテーションへ置き換えます。野獣使いを始めたばかりの人向けの設定です。
+WrathCombo,,,Text/RenderTextWrapped,Replaces Trick with the correct Instinctual skill to complete an Intentional Combo. Order of actions prioritises getting to 2 Mastered Instinct stacks and 1 Natural Instinct stack.,Trickを、意図コンボを完成させるために必要な本能系アクションへ置き換えます。行動順はMastered Instinctを2スタック、Natural Instinctを1スタック確保することを優先します。
+WrathCombo,,,Text/RenderTextWrapped,Rotation Buttons,ローテーション操作ボタン
+WrathCombo,,,Text/RenderTextWrapped,seconds,秒
+WrathCombo,,,BeginComboPreview/Selectable,Select a Target to Add,追加するターゲットを選択
+WrathCombo,,,TableSetupColumn,Setting,設定
+WrathCombo,,,Checkbox/RenderText,Simple Mode###BST_SimpleMode,シンプルモード###BST_SimpleMode
+WrathCombo,,,Checkbox/RenderText,Single Target DPS##Custom1000000,単体DPS##Custom1000000
+WrathCombo,,,Text/RenderTextWrapped,Single Target Heals,単体回復
+WrathCombo,,,Checkbox/RenderText,Single Target Heals##Custom1000002,単体回復##Custom1000002
+WrathCombo,,,Selectable,Soft Target,ソフトターゲット
+WrathCombo,,,Text/RenderTextWrapped,Soft Target   >   Hard Target   >   Lowest HP% Ally   >   Self,ソフトターゲット > 現在のターゲット > HP割合が最も低い味方 > 自分
+WrathCombo,,,Text/RenderTextWrapped,Switches between enabled and disabled for auto-rotation,自動ローテーションのON/OFFを切り替えます。
+WrathCombo,,,Selectable,Targets Target,ターゲットのターゲット
+WrathCombo,,,Text/RenderTextWrapped,These are buttons which serve to control the plugin in some way. Just drag the icon to your hotbar to use them.,プラグインを操作するためのボタンです。アイコンをホットバーへドラッグして使用します。
+WrathCombo,,,Text/RenderTextWrapped,"These buttons replace the need to replace actions for all features marked as either Simple or Advanced. Enable the type of combo you're wanting to use custom actions for, and drag the icon to your hotbar.
+
+This frees up the actions for manual use, for example, for downtime where you only want to use 1-2-3 combos, or for healers to always have access to basic healing actions.","SimpleまたはAdvancedとして提供される機能を、通常アクションの置換ではなく専用ボタンから使用できます。使いたいコンボ種別を有効にして、アイコンをホットバーへドラッグしてください。
+
+元のアクションを手動用として残せるため、ギミック待ち中に1-2-3コンボだけ使いたい場合や、ヒーラーが基本回復アクションを常に使えるようにしたい場合などに便利です。"
+WrathCombo,,,Text/RenderTextWrapped,This is for the AoE DPS combos.,範囲DPSコンボ用です。
+WrathCombo,,,Text/RenderTextWrapped,This is for the AoE Heal combos.,範囲回復コンボ用です。
+WrathCombo,,,Text/RenderTextWrapped,This is for the Single Target DPS combos.,単体DPSコンボ用です。
+WrathCombo,,,Text/RenderTextWrapped,This is for the Single Target Heal combos.,単体回復コンボ用です。
+WrathCombo,,,Text/RenderTextWrapped,"This is highly experimental, and may have undesired behaviours. Please be vigilant and report this.",非常に試験的な機能です。意図しない動作が起こる可能性があります。挙動を確認し、問題があれば報告してください。
+WrathCombo,,,Text/RenderTextWrapped,"This section contains a range of bespoke ""Custom Actions"" which can be used as replacements for either base action replacements or specific macros.",ここには、通常のアクション置換や特定のマクロの代わりに使える専用の「カスタムアクション」が用意されています。
+WrathCombo,,,Text/RenderTextWrapped,"This will hide all combo outputs on custom actions, leaving only these icons showing. This is not advised if you wish to see the real actions being output by the combos on your hotbar, and should only be used if you feel it's something you want.",カスタムアクション上でコンボ結果のアイコンを表示せず、この固定アイコンだけを表示します。ホットバー上で実際に出力されるアクションを確認したい場合には推奨しません。必要な場合のみ使用してください。
+WrathCombo,,,Text/RenderTextWrapped,"Tip: If a combo replaces an action, you can drag the action directly from this window to your hotbar!",ヒント：コンボで置き換えられるアクションは、この画面から直接ホットバーへドラッグできます！
+WrathCombo,,,Selectable,UI-MouseOver Target,UI上のマウスオーバー対象
+WrathCombo,,,Text/RenderTextWrapped,Utility Buttons,補助操作ボタン
+WrathCombo,,,Text/RenderTextWrapped,"Will lockout combos on your hotbar when detected mechanics that inflict a penalty for using an action is detected (e.g pyretics, acceleration bombs, gazes etc.) has this much time left before resolving.
+
+Some mechanics may override this value.
+
+Set to 0 to disable.
+
+推奨値: Increase with higher latency to the server
+既定値: 1.5","行動するとペナルティを受けるギミック（熱狂、加速度爆弾、視線など）を検出した際、解除までの残り時間がこの値以下になるとホットバー上のコンボを使用不可にします。
+
+一部のギミックではこの値が上書きされる場合があります。
+
+0にすると無効です。
+
+推奨値: サーバーへの遅延が大きい場合は増やしてください
+既定値: 1.5"
+WrathCombo,,,Text/RenderTextWrapped,Wrath Combo (JA) - 1.0.4.25,Wrath Combo (JA) - 1.0.4.25
+WrathCombo,,,Text/RenderTextWrapped,侍 - SAM ,侍 - SAM 
+WrathCombo,,,Text/RenderTextWrapped,占星術師 - AST ,占星術師 - AST 
+WrathCombo,,,Text/RenderTextWrapped,召喚士 - SMN ,召喚士 - SMN 
+WrathCombo,,,Text/RenderTextWrapped,吟遊詩人 - BRD ,吟遊詩人 - BRD 
+WrathCombo,,,Text/RenderTextWrapped,学者 - SCH ,学者 - SCH 
+WrathCombo,,,Text/RenderTextWrapped,忍者 - NIN ,忍者 - NIN 
+WrathCombo,,,Text/RenderTextWrapped,戦士 - WAR ,戦士 - WAR 
+WrathCombo,,,Text/RenderTextWrapped,暗黒騎士 - DRK ,暗黒騎士 - DRK 
+WrathCombo,,,Text/RenderTextWrapped,検索:,検索:
+WrathCombo,,,Selectable,概要,概要
+WrathCombo,,,Text/RenderTextWrapped,機工士 - MCH ,機工士 - MCH 
+WrathCombo,,,Text/RenderTextWrapped,白魔道士 - WHM ,白魔道士 - WHM 
+WrathCombo,,,Text/RenderTextWrapped,竜騎士 - DRG ,竜騎士 - DRG 
+WrathCombo,,,Text/RenderTextWrapped,詠唱割合 %,詠唱割合 %
+WrathCombo,,,Checkbox/RenderText,説明文,説明文
+WrathCombo,,,Text/RenderTextWrapped,賢者 - SGE ,賢者 - SGE 
+WrathCombo,,,Text/RenderTextWrapped,赤魔道士 - RDM ,赤魔道士 - RDM 
+WrathCombo,,,TabItem,通常,通常
+WrathCombo,,,Text/RenderTextWrapped,黒魔道士 - BLM ,黒魔道士 - BLM 
+WrathCombo,,,Button,##-customStackAnyDeadPartyMemberカスタム蘇生優先順del,##-customStackAnyDeadPartyMemberカスタム蘇生優先順del
+WrathCombo,,,Button,##-customStackAnyHealerカスタム蘇生優先順del,##-customStackAnyHealerカスタム蘇生優先順del
+WrathCombo,,,Button,##-customStackAnyRaiserカスタム蘇生優先順del,##-customStackAnyRaiserカスタム蘇生優先順del
+WrathCombo,,,Button,##-customStackAnyTankカスタム蘇生優先順del,##-customStackAnyTankカスタム蘇生優先順del
+WrathCombo,,,Button,##-customStackカスタム蘇生優先順del,##-customStackカスタム蘇生優先順del
+WrathCombo,,,Button,##-customStackAnyDeadPartyMemberカスタム蘇生優先順down,##-customStackAnyDeadPartyMemberカスタム蘇生優先順down
+WrathCombo,,,Button,##-customStackAnyHealerカスタム蘇生優先順down,##-customStackAnyHealerカスタム蘇生優先順down
+WrathCombo,,,Button,##-customStackAnyRaiserカスタム蘇生優先順down,##-customStackAnyRaiserカスタム蘇生優先順down
+WrathCombo,,,Button,##-customStackAnyTankカスタム蘇生優先順down,##-customStackAnyTankカスタム蘇生優先順down
+WrathCombo,,,Button,##-customStackカスタム蘇生優先順down,##-customStackカスタム蘇生優先順down
+WrathCombo,,,Button,##-customStackAnyDeadPartyMemberカスタム蘇生優先順up,##-customStackAnyDeadPartyMemberカスタム蘇生優先順up
+WrathCombo,,,Button,##-customStackAnyHealerカスタム蘇生優先順up,##-customStackAnyHealerカスタム蘇生優先順up
+WrathCombo,,,Button,##-customStackAnyRaiserカスタム蘇生優先順up,##-customStackAnyRaiserカスタム蘇生優先順up
+WrathCombo,,,Button,##-customStackAnyTankカスタム蘇生優先順up,##-customStackAnyTankカスタム蘇生優先順up
+WrathCombo,,,Button,##-customStackカスタム蘇生優先順up,##-customStackカスタム蘇生優先順up
+WrathCombo,,,Button,##-CollapseButton,##-CollapseButton
