@@ -108,6 +108,15 @@
       "sha": "a4db3483e9c05c2f062664d11295d87b6df74cca",
       "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/CBT(Automaton).csv",
       "deleteKeyHash": "2de391d4b00f195afb385201e7b9aa820b2d16cd1bd2eb2ef486af6ef6f69737"
+    },
+    {
+      "fileName": "CBT_v69.218.csv",
+      "pluginName": "Automaton",
+      "owner": "CBT",
+      "updated": "2026-09-19",
+      "sha": "54884e7fc25737c32a3159eb4c0b7fd4ec62919c",
+      "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/CBT_v69.218.csv",
+      "deleteKeyHash": "b9eb1b087120d9c02de5c3fe3dbcbdb85491000e7b97059cffc29707ff7884f6"
     }
   ]
 }
