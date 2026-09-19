@@ -99,6 +99,15 @@
       "sha": "4d457b8c08a13f3737a4e0fc7e547d7c167aa1de",
       "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/CactBridge.csv",
       "deleteKeyHash": "5dd7467f7437fde581408dd3df288f4f8a1ed307917fc60150a0651f19a7b394"
+    },
+    {
+      "fileName": "CBT(Automaton).csv",
+      "pluginName": "Automaton",
+      "owner": "天使",
+      "updated": "2026-09-19",
+      "sha": "a4db3483e9c05c2f062664d11295d87b6df74cca",
+      "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/CBT(Automaton).csv",
+      "deleteKeyHash": "2de391d4b00f195afb385201e7b9aa820b2d16cd1bd2eb2ef486af6ef6f69737"
     }
   ]
 }
