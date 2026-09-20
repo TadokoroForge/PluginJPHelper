@@ -117,15 +117,6 @@
       "sha": "54884e7fc25737c32a3159eb4c0b7fd4ec62919c",
       "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/CBT_v69.218.csv",
       "deleteKeyHash": "b9eb1b087120d9c02de5c3fe3dbcbdb85491000e7b97059cffc29707ff7884f6"
-    },
-    {
-      "fileName": "Pawprint.csv",
-      "pluginName": "Pawprint",
-      "owner": "天使",
-      "updated": "2026-09-20",
-      "sha": "2db0b184fdccf899dbda4019848c742596bc8d65",
-      "downloadUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/Dictionaries/Community/Pawprint.csv",
-      "deleteKeyHash": "f8b6f63155393b5719b7622be1bde050033f7620b8750258d0a85d3cc368aaaf"
     }
   ]
 }
