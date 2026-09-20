@@ -6,7 +6,7 @@
     "Description": "Dalamudプラグインの表示文字列を日本語化する補助プラグインです。Plugin Installerの説明翻訳・日本語検索にも対応します。",
     "Changelog": "v0.4.7: Plugin Installer側でRemote Manifestが後から差し替わる場合でも自動で翻訳を再適用するよう修正。同名プラグインが複数リポジトリに存在する場合も、表示中のRemote Manifest全件へ翻訳を適用します。",
     "InternalName": "PluginJPHelper",
-    "AssemblyVersion": "0.4.9.0",
+    "AssemblyVersion": "0.4.10.0",
     "RepoUrl": "https://github.com/elpapityo/PluginJPHelper",
     "ApplicableVersion": "any",
     "Tags": [
@@ -17,9 +17,9 @@
     "LoadPriority": 0,
     "IconUrl": "https://raw.githubusercontent.com/elpapityo/PluginJPHelper/main/images/icon.png?v=0.4.7",
     "ImageUrls": [],
-    "DownloadLinkInstall": "https://github.com/elpapityo/PluginJPHelper/releases/download/V0.4.9/PluginJPHelper_v0.4.9.zip",
-    "DownloadLinkUpdate": "https://github.com/elpapityo/PluginJPHelper/releases/download/V0.4.9/PluginJPHelper_v0.4.9.zip",
-    "DownloadLinkTesting": "https://github.com/elpapityo/PluginJPHelper/releases/download/V0.4.9/PluginJPHelper_v0.4.9.zip",
+    "DownloadLinkInstall": "https://github.com/elpapityo/PluginJPHelper/releases/download/V0.4.10/PluginJPHelper_v0.4.10.zip",
+    "DownloadLinkUpdate": "https://github.com/elpapityo/PluginJPHelper/releases/download/V0.4.10/PluginJPHelper_v0.4.10.zip",
+    "DownloadLinkTesting": "https://github.com/elpapityo/PluginJPHelper/releases/download/V0.4.10/PluginJPHelper_v0.4.10.zip",
     "IsHide": false,
     "IsTestingExclusive": false
   }
