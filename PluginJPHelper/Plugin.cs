@@ -10,7 +10,8 @@ using Dalamud.Hooking;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using PluginJPHelper.Data;
-using PluginJPHelper.Plugins;
+using PluginJPHelper.Plugins.Behaviors;
+using PluginJPHelper.Plugins.Profiles;
 
 namespace PluginJPHelper;
 
@@ -728,8 +729,8 @@ public sealed unsafe class Plugin : IDalamudPlugin
         // まず従来どおり完全一致。
         if (TryGetTranslationForPlugin(pluginName, source, out translated)) return true;
 
-        if (InventoryToolsProfile.TryTranslateDynamic(pluginName, source, out translated)) return true;
-        if (ArtisanProfile.TryTranslateDynamic(pluginName, source, false, out translated)) return true;
+        if (InventoryToolsBehavior.TryTranslateDynamic(pluginName, source, out translated)) return true;
+        if (ArtisanBehavior.TryTranslateDynamic(pluginName, source, false, out translated)) return true;
 
         // v0.0.66: 部分一致はDalamudACTの動的ラベルだけに限定する。
         // ICEなど通常のプラグインは完全一致だけで処理し、辞書全件走査を行わない。
@@ -908,22 +909,22 @@ public sealed unsafe class Plugin : IDalamudPlugin
     // v0.0.69: Allagan Tools の設定画面はウィンドウ名が汎用的な "Configuration" のため、
     // ウィンドウ名だけでは所有プラグインを安全に判定できない。
     // メニューバー固有の "Wizard" を同一フレームで確認した時だけ InventoryTools と確定する。
-    // 判定条件そのものは InventoryToolsProfile が持つ。ここはスタックの差し替えだけを行う。
+    // 判定条件そのものは InventoryToolsBehavior が持つ。ここはスタックの差し替えだけを行う。
     private void DetectInventoryToolsConfigurationOwner(byte* label)
     {
         if (drawingOwnUi || label == null) return;
-        if (!InventoryToolsProfile.IsConfigurationWindow(CurrentWindowName)) return;
-        if (!config.Plugins.TryGetValue(InventoryToolsProfile.PluginName, out var state) || !state.Enabled) return;
+        if (!InventoryToolsBehavior.IsConfigurationWindow(CurrentWindowName)) return;
+        if (!config.Plugins.TryGetValue(InventoryToolsBehavior.PluginName, out var state) || !state.Enabled) return;
 
         string? source;
         try { source = Marshal.PtrToStringUTF8((nint)label); }
         catch { return; }
-        if (!InventoryToolsProfile.IsConfigurationOwnerMenu(source)) return;
+        if (!InventoryToolsBehavior.IsConfigurationOwnerMenu(source)) return;
 
         if (windowOwnerStack is not { Count: > 0 }) return;
         windowOwnerStack.Pop();
-        windowOwnerStack.Push(InventoryToolsProfile.PluginName);
-        lastExplicitWindowOwner = InventoryToolsProfile.PluginName;
+        windowOwnerStack.Push(InventoryToolsBehavior.PluginName);
+        lastExplicitWindowOwner = InventoryToolsBehavior.PluginName;
         lastExplicitWindowOwnerTick = Environment.TickCount64;
     }
 
@@ -1164,8 +1165,8 @@ public sealed unsafe class Plugin : IDalamudPlugin
         }
         if (string.IsNullOrEmpty(pluginName)) return false;
 
-        if (InventoryToolsProfile.TryTranslateDynamic(pluginName, source, out translated)) return true;
-        if (ArtisanProfile.TryTranslateDynamic(pluginName, source, preserveImGuiId, out translated)) return true;
+        if (InventoryToolsBehavior.TryTranslateDynamic(pluginName, source, out translated)) return true;
+        if (ArtisanBehavior.TryTranslateDynamic(pluginName, source, preserveImGuiId, out translated)) return true;
 
         // v0.0.66: Button/Checkbox/TreeNode/Selectable等も、部分一致はDalamudACTだけ。
         // 通常プラグインは上の完全一致辞書検索だけで終了する。
@@ -1972,8 +1973,8 @@ public sealed unsafe class Plugin : IDalamudPlugin
             .Select(x => x!)
             .Distinct(StringComparer.OrdinalIgnoreCase)
             .ToList();
-        if (ArtisanProfile.MatchesPluginName(plugin.InternalName) || ArtisanProfile.MatchesPluginName(plugin.Name))
-            ArtisanProfile.EnsureWindowKeywords(keywords);
+        if (ArtisanBehavior.MatchesPluginName(plugin.InternalName) || ArtisanBehavior.MatchesPluginName(plugin.Name))
+            ArtisanBehavior.EnsureWindowKeywords(keywords);
         state.WindowKeyword = string.Join("|", keywords);
         EnsureCaptureDictionary(key);
         selectedPlugin = capturePlugin = key;
@@ -2035,7 +2036,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
     {
         try
         {
-            const string pluginName = InventoryToolsProfile.PluginName;
+            const string pluginName = InventoryToolsBehavior.PluginName;
 
             if (!config.Plugins.TryGetValue(pluginName, out var state) || state == null)
             {
@@ -2043,7 +2044,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
                 {
                     Enabled = true,
                     TranslationTarget = true,
-                    WindowKeyword = InventoryToolsProfile.DefaultWindowKeyword,
+                    WindowKeyword = InventoryToolsBehavior.DefaultWindowKeyword,
                 };
                 config.Plugins[pluginName] = state;
                 EnsureCaptureDictionary(pluginName);
@@ -2055,7 +2056,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
             }
 
             var assemblyDir = Path.GetDirectoryName(typeof(Plugin).Assembly.Location) ?? string.Empty;
-            var latest = InventoryToolsProfile.FindLatestBundledPatch(assemblyDir);
+            var latest = InventoryToolsBehavior.FindLatestBundledPatch(assemblyDir);
 
             if (latest is not { } patch)
             {

@@ -1,6 +1,6 @@
-namespace PluginJPHelper.Plugins;
+namespace PluginJPHelper.Plugins.Behaviors;
 
-internal static class InventoryToolsProfile
+internal static class InventoryToolsBehavior
 {
     public const string PluginName = "InventoryTools";
 

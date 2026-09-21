@@ -1,6 +1,6 @@
-namespace PluginJPHelper.Plugins;
+namespace PluginJPHelper.Plugins.Behaviors;
 
-internal static class ArtisanProfile
+internal static class ArtisanBehavior
 {
     private const string PluginName = "Artisan";
 

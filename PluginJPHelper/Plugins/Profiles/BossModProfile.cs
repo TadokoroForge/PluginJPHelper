@@ -1,4 +1,4 @@
-namespace PluginJPHelper.Plugins;
+namespace PluginJPHelper.Plugins.Profiles;
 
 internal sealed class BossModProfile : IPluginProfile
 {
