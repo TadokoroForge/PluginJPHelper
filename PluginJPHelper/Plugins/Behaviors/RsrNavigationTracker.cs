@@ -1,7 +1,7 @@
 namespace PluginJPHelper.Plugins.Behaviors;
 
 using System.Runtime.InteropServices;
-using PluginJPHelper.Plugins.Profiles;
+using Profiles;
 
 internal static unsafe class RsrNavigationTracker
 {
