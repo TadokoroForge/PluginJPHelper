@@ -21,6 +21,7 @@ internal static class InventoryToolsProfile
     {
         var name = Path.GetFileNameWithoutExtension(path);
         if (!name.StartsWith(BundledCsvPrefix, StringComparison.OrdinalIgnoreCase)) return -1;
+
         return int.TryParse(name[BundledCsvPrefix.Length..], out var version) ? version : -1;
     }
 
@@ -86,6 +87,7 @@ internal static class InventoryToolsProfile
                 return true;
             }
         }
+
         if (source.StartsWith(usePrefix, StringComparison.Ordinal))
         {
             var middle = source.IndexOf(useMiddle, usePrefix.Length, StringComparison.Ordinal);
@@ -97,6 +99,7 @@ internal static class InventoryToolsProfile
                 return true;
             }
         }
+
         return false;
     }
 }

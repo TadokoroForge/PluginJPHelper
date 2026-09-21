@@ -1,8 +1,16 @@
 namespace PluginJPHelper.Plugins;
 
-internal static class DalamudActProfile
+internal sealed class DalamudActProfile : IPluginProfile
 {
     public const string PluginName = "DalamudACT";
+
+    public string Name => PluginName;
+
+    public int SortKey => 10;
+
+    public string DefaultWindowKeyword => PluginName;
+
+    bool IPluginProfile.MatchesWindow(string windowName) => MatchesWindow(windowName);
 
     private static readonly string[] WindowKeywords =
     [
@@ -21,7 +29,9 @@ internal static class DalamudActProfile
     public static bool MatchesWindow(string windowName)
     {
         foreach (var keyword in WindowKeywords)
-            if (windowName.Contains(keyword, StringComparison.OrdinalIgnoreCase)) return true;
+            if (windowName.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+                return true;
+
         return false;
     }
 }

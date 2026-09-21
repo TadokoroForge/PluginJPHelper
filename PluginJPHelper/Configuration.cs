@@ -47,13 +47,19 @@ public sealed class Configuration : IPluginConfiguration
             artisanState.WindowKeyword = string.Join("|", keywords);
         }
 
-        foreach (var name in new[] { "RSR", "BMR", "BM" })
+        foreach (var name in new[] { RsrProfile.PluginName, BossModRebornProfile.PluginName, BossModProfile.PluginName })
         {
             if (!Plugins.TryGetValue(name, out var state) || state == null)
             {
-                state = new PluginDictionaryState { Enabled = name == "RSR", TranslationTarget = true, WindowKeyword = name switch { "RSR" => "Rotation Solver", "BMR" => "BossModReborn", "BM" => "BossMod", _ => string.Empty } };
+                state = new PluginDictionaryState
+                {
+                    Enabled = name == RsrProfile.PluginName,
+                    TranslationTarget = true,
+                    WindowKeyword = PluginProfileRegistry.Find(name)?.DefaultWindowKeyword ?? string.Empty,
+                };
                 Plugins[name] = state;
             }
+
             state.UserOverrides ??= new Dictionary<string, string>(StringComparer.Ordinal);
             state.OfficialOverrides ??= new Dictionary<string, string>(StringComparer.Ordinal);
             state.Locations ??= new Dictionary<string, DictionaryLocation>(StringComparer.Ordinal);

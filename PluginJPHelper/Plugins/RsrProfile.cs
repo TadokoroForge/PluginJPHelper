@@ -1,10 +1,18 @@
 namespace PluginJPHelper.Plugins;
 
-using PluginJPHelper.Data;
+using Data;
 
-internal static class RsrProfile
+internal sealed class RsrProfile : IPluginProfile
 {
     public const string PluginName = "RSR";
+
+    public string Name => PluginName;
+
+    public int SortKey => 0;
+
+    public string DefaultWindowKeyword => "Rotation Solver";
+
+    bool IPluginProfile.MatchesWindow(string windowName) => MatchesWindow(windowName);
 
     private const string SideBarWindowKeyword = "Rotation Solver Side bar";
 
@@ -21,7 +29,9 @@ internal static class RsrProfile
     public static bool MatchesWindow(string windowName)
     {
         foreach (var keyword in WindowKeywords)
-            if (windowName.Contains(keyword, StringComparison.OrdinalIgnoreCase)) return true;
+            if (windowName.Contains(keyword, StringComparison.OrdinalIgnoreCase))
+                return true;
+
         return false;
     }
 
@@ -40,8 +50,11 @@ internal static class RsrProfile
     public static bool IsShadowKey(string key, IReadOnlyDictionary<string, string> standard)
     {
         if (standard.ContainsKey(key)) return false;
+
         foreach (var kv in standard)
-            if (string.Equals(kv.Value, key, StringComparison.Ordinal)) return true;
+            if (string.Equals(kv.Value, key, StringComparison.Ordinal))
+                return true;
+
         return false;
     }
 

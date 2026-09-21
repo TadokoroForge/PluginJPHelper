@@ -1099,26 +1099,8 @@ public sealed unsafe class Plugin : IDalamudPlugin
     {
         if (string.IsNullOrWhiteSpace(windowName)) return false;
 
-        var w = windowName.Trim();
-        return pluginName switch
-        {
-            "RSR" => RsrProfile.MatchesWindow(w),
-
-            "BMR" => w.Contains("BossMod Reborn", StringComparison.OrdinalIgnoreCase)
-                  || w.Contains("Boss Mod Reborn", StringComparison.OrdinalIgnoreCase)
-                  || w.Contains("BossModReborn", StringComparison.OrdinalIgnoreCase),
-
-            "BM" => (w.Contains("BossMod", StringComparison.OrdinalIgnoreCase)
-                  || w.Contains("Boss Mod", StringComparison.OrdinalIgnoreCase))
-                  && !w.Contains("Reborn", StringComparison.OrdinalIgnoreCase),
-
-            "DalamudACT" => DalamudActProfile.MatchesWindow(w),
-
-            _ => config.Plugins.TryGetValue(pluginName, out var custom)
-                 && !string.IsNullOrWhiteSpace(custom.WindowKeyword)
-                 && custom.WindowKeyword.Split('|', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
-                     .Any(keyword => w.Contains(keyword, StringComparison.OrdinalIgnoreCase)),
-        };
+        var customWindowKeyword = config.Plugins.TryGetValue(pluginName, out var state) ? state.WindowKeyword : null;
+        return PluginProfileRegistry.MatchesWindow(pluginName, windowName.Trim(), customWindowKeyword);
     }
 
     private void UpdateRsrNavigationContext(byte* label, bool selected)
@@ -1376,7 +1358,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
         SaveConfig();
 
         var next = config.Plugins.Where(x => x.Value.TranslationTarget).Select(x => x.Key)
-            .OrderBy(x => PluginSortKey(x)).ThenBy(x => x, StringComparer.OrdinalIgnoreCase).FirstOrDefault();
+            .OrderBy(x => PluginProfileRegistry.SortKey(x)).ThenBy(x => x, StringComparer.OrdinalIgnoreCase).FirstOrDefault();
         if (!string.IsNullOrWhiteSpace(next)) selectedPlugin = capturePlugin = next;
         csvStatus = $"{pluginName} を翻訳対象から外しました。辞書データ自体は削除していません。";
     }
@@ -1386,7 +1368,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
         var pluginNames = config.Plugins
             .Where(x => x.Value.TranslationTarget)
             .Select(x => x.Key)
-            .OrderBy(x => PluginSortKey(x)).ThenBy(x => x, StringComparer.OrdinalIgnoreCase).ToArray();
+            .OrderBy(x => PluginProfileRegistry.SortKey(x)).ThenBy(x => x, StringComparer.OrdinalIgnoreCase).ToArray();
         if (pluginNames.Length == 0)
         {
             ImGui.TextDisabled("翻訳対象がありません。「未翻訳・取得」タブからインストール済みプラグインを追加してください。");
@@ -1706,7 +1688,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
         ImGui.Spacing();
         ImGui.TextUnformatted("翻訳対象プラグイン");
         var captureNames = config.Plugins.Where(x => x.Value.TranslationTarget).Select(x => x.Key)
-            .OrderBy(x => PluginSortKey(x)).ThenBy(x => x, StringComparer.OrdinalIgnoreCase).ToArray();
+            .OrderBy(x => PluginProfileRegistry.SortKey(x)).ThenBy(x => x, StringComparer.OrdinalIgnoreCase).ToArray();
         if (captureNames.Length > 0 && !captureNames.Contains(capturePlugin, StringComparer.Ordinal)) capturePlugin = captureNames[0];
         foreach (var name in captureNames)
         {
@@ -1897,7 +1879,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
         if (!pluginCaptured.ContainsKey(name)) pluginCaptured[name] = new ConcurrentDictionary<string, CapturedItem>(StringComparer.Ordinal);
     }
 
-    private static int PluginSortKey(string name) => name switch { "RSR" => 0, "BMR" => 1, "BM" => 2, _ => 10 };
+
 
     private bool IsTranslatedShadowKey(string pluginName, string key)
     {
