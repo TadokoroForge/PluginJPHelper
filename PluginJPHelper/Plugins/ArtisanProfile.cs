@@ -1,20 +1,14 @@
-namespace PluginJPHelper;
+namespace PluginJPHelper.Plugins;
 
-// Artisan 固有の処理。他のプラグインには影響しない。
-// 元は Plugin.cs（動的表示の翻訳・ウィンドウキーワード補完）と
-// Configuration.cs（既存設定へのキーワード移行）に散在していたものをここへ集約した。
 internal static class ArtisanProfile
 {
-    public const string PluginName = "Artisan";
+    private const string PluginName = "Artisan";
 
-    // Artisan はメイン画面とは別に List Editor / Processing List というウィンドウ名を使う。
-    // ウィンドウ名だけでは所有プラグインを判定できないため、これらも照合語に含める。
     private static readonly string[] RequiredWindowKeywords = ["Artisan", "List Editor", "Processing List"];
 
     public static bool MatchesPluginName(string? name)
         => string.Equals(name, PluginName, StringComparison.OrdinalIgnoreCase);
 
-    // WindowKeyword へ不足分だけを補完する。ユーザーが設定した語は消さない。
     public static void EnsureWindowKeywords(List<string> keywords)
     {
         foreach (var required in RequiredWindowKeywords)
@@ -22,7 +16,6 @@ internal static class ArtisanProfile
                 keywords.Add(required);
     }
 
-    // v0.3.1: Artisan の可変表示を安全に翻訳する。数値・アイテム名・ImGui ID は保持する。
     public static bool TryTranslateDynamic(string pluginName, string source, bool interactiveLabel, out string translated)
     {
         translated = string.Empty;
@@ -81,6 +74,7 @@ internal static class ArtisanProfile
             result = "リテイナー所持品: " + visible[retainerItem.Length..];
 
         if (result == null) return false;
+
         translated = interactiveLabel ? result : result + idSuffix;
         return true;
     }

@@ -1,4 +1,5 @@
 using Dalamud.Configuration;
+using PluginJPHelper.Plugins;
 
 namespace PluginJPHelper;
 

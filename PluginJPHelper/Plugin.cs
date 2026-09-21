@@ -9,6 +9,7 @@ using Dalamud.Game.Command;
 using Dalamud.Hooking;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
+using PluginJPHelper.Plugins;
 
 namespace PluginJPHelper;
 
@@ -1589,7 +1590,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
         // まず従来どおり完全一致。
         if (TryGetTranslationForPlugin(pluginName, source, out translated)) return true;
 
-        if (TryTranslateInventoryToolsDynamic(pluginName, source, out translated)) return true;
+        if (InventoryToolsProfile.TryTranslateDynamic(pluginName, source, out translated)) return true;
         if (ArtisanProfile.TryTranslateDynamic(pluginName, source, false, out translated)) return true;
 
         // v0.0.66: 部分一致はDalamudACTの動的ラベルだけに限定する。
@@ -1769,22 +1770,22 @@ public sealed unsafe class Plugin : IDalamudPlugin
     // v0.0.69: Allagan Tools の設定画面はウィンドウ名が汎用的な "Configuration" のため、
     // ウィンドウ名だけでは所有プラグインを安全に判定できない。
     // メニューバー固有の "Wizard" を同一フレームで確認した時だけ InventoryTools と確定する。
-    // 辞書全走査や部分一致は行わず、文字列完全一致1回だけの軽量判定。
+    // 判定条件そのものは InventoryToolsProfile が持つ。ここはスタックの差し替えだけを行う。
     private void DetectInventoryToolsConfigurationOwner(byte* label)
     {
         if (drawingOwnUi || label == null) return;
-        if (!string.Equals(CurrentWindowName, "Configuration", StringComparison.Ordinal)) return;
-        if (!config.Plugins.TryGetValue("InventoryTools", out var state) || !state.Enabled) return;
+        if (!InventoryToolsProfile.IsConfigurationWindow(CurrentWindowName)) return;
+        if (!config.Plugins.TryGetValue(InventoryToolsProfile.PluginName, out var state) || !state.Enabled) return;
 
         string? source;
         try { source = Marshal.PtrToStringUTF8((nint)label); }
         catch { return; }
-        if (!string.Equals(source, "Wizard", StringComparison.Ordinal)) return;
+        if (!InventoryToolsProfile.IsConfigurationOwnerMenu(source)) return;
 
         if (windowOwnerStack is not { Count: > 0 }) return;
         windowOwnerStack.Pop();
-        windowOwnerStack.Push("InventoryTools");
-        lastExplicitWindowOwner = "InventoryTools";
+        windowOwnerStack.Push(InventoryToolsProfile.PluginName);
+        lastExplicitWindowOwner = InventoryToolsProfile.PluginName;
         lastExplicitWindowOwnerTick = Environment.TickCount64;
     }
 
@@ -2064,74 +2065,6 @@ public sealed unsafe class Plugin : IDalamudPlugin
         return translatedVisible + "###" + original;
     }
 
-    // v0.0.69: InventoryTools の Source/Use category HelpText は毎回動的に組み立てられる。
-    // 全辞書の部分一致は行わず、既知の定型文だけを O(文字列長) で処理する。
-    private bool TryTranslateInventoryToolsDynamic(string pluginName, string source, out string translated)
-    {
-        translated = string.Empty;
-        if (!string.Equals(pluginName, "InventoryTools", StringComparison.OrdinalIgnoreCase)) return false;
-
-        const string sourcePrefix = "Can the item be sourced via ";
-        const string sourceMiddle = "?\n\nIt includes these sources: ";
-        const string usePrefix = "Can the item be used for ";
-        const string useMiddle = "?\n\nIt includes these uses: ";
-        const string nextAutosavePrefix = "Next Autosave: ";
-
-        if (source.StartsWith(nextAutosavePrefix, StringComparison.Ordinal))
-        {
-            translated = "次回自動保存：" + source[nextAutosavePrefix.Length..];
-            return true;
-        }
-
-        static string CategoryJa(string value) => value.Trim().ToLowerInvariant() switch
-        {
-            "botany" => "園芸",
-            "crafting" => "製作",
-            "deep dungeon" => "ディープダンジョン",
-            "duties" => "コンテンツ",
-            "field operation" => "特殊フィールド探索",
-            "fishing" => "釣り",
-            "gathering" => "採集",
-            "gathering (ephemeral)" => "刻限の採集",
-            "gathering (hidden)" => "未知の採集",
-            "gathering (timed)" => "時間限定の採集",
-            "mining" => "採掘",
-            "venture" => "リテイナーベンチャー",
-            "venture (exploration)" => "探索依頼",
-            "leves" => "リーヴ",
-            "shops" => "ショップ",
-            "housing" => "ハウジング",
-            "relic weapon" => "武器強化コンテンツ",
-            "relic tool" => "道具強化コンテンツ",
-            _ => value.Trim()
-        };
-
-        if (source.StartsWith(sourcePrefix, StringComparison.Ordinal))
-        {
-            var middle = source.IndexOf(sourceMiddle, sourcePrefix.Length, StringComparison.Ordinal);
-            if (middle > sourcePrefix.Length)
-            {
-                var category = source.Substring(sourcePrefix.Length, middle - sourcePrefix.Length);
-                var list = source[(middle + sourceMiddle.Length)..];
-                translated = $"{CategoryJa(category)}で入手できるアイテムか？\n\n対象となる入手元：{list}";
-                return true;
-            }
-        }
-        if (source.StartsWith(usePrefix, StringComparison.Ordinal))
-        {
-            var middle = source.IndexOf(useMiddle, usePrefix.Length, StringComparison.Ordinal);
-            if (middle > usePrefix.Length)
-            {
-                var category = source.Substring(usePrefix.Length, middle - usePrefix.Length);
-                var list = source[(middle + useMiddle.Length)..];
-                translated = $"{CategoryJa(category)}に使用するアイテムか？\n\n対象となる用途：{list}";
-                return true;
-            }
-        }
-        return false;
-    }
-
-
     private bool TryTranslatePointer(byte* begin, byte* end, bool preserveImGuiId, out string translated)
     {
         translated = string.Empty;
@@ -2171,7 +2104,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
         }
         if (string.IsNullOrEmpty(pluginName)) return false;
 
-        if (TryTranslateInventoryToolsDynamic(pluginName, source, out translated)) return true;
+        if (InventoryToolsProfile.TryTranslateDynamic(pluginName, source, out translated)) return true;
         if (ArtisanProfile.TryTranslateDynamic(pluginName, source, preserveImGuiId, out translated)) return true;
 
         // v0.0.66: Button/Checkbox/TreeNode/Selectable等も、部分一致はDalamudACTだけ。
@@ -3081,19 +3014,11 @@ public sealed unsafe class Plugin : IDalamudPlugin
         catch (Exception ex) { return $"保存フォルダーを開けませんでした: {ex.Message}"; }
     }
 
-    private static int GetInventoryToolsPatchVersion(string path)
-    {
-        const string prefix = "InventoryTools_JP_patch_v";
-        var name = Path.GetFileNameWithoutExtension(path);
-        if (!name.StartsWith(prefix, StringComparison.OrdinalIgnoreCase)) return -1;
-        return int.TryParse(name[prefix.Length..], out var version) ? version : -1;
-    }
-
     private bool EnsureLatestBundledInventoryToolsCsv()
     {
         try
         {
-            const string pluginName = "InventoryTools";
+            const string pluginName = InventoryToolsProfile.PluginName;
 
             if (!config.Plugins.TryGetValue(pluginName, out var state) || state == null)
             {
@@ -3101,7 +3026,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
                 {
                     Enabled = true,
                     TranslationTarget = true,
-                    WindowKeyword = "Configuration",
+                    WindowKeyword = InventoryToolsProfile.DefaultWindowKeyword,
                 };
                 config.Plugins[pluginName] = state;
                 EnsureCaptureDictionary(pluginName);
@@ -3113,20 +3038,15 @@ public sealed unsafe class Plugin : IDalamudPlugin
             }
 
             var assemblyDir = Path.GetDirectoryName(typeof(Plugin).Assembly.Location) ?? string.Empty;
-            var latest = Directory
-                .GetFiles(assemblyDir, "InventoryTools_JP_patch_v*.csv", SearchOption.TopDirectoryOnly)
-                .Select(path => new { Path = path, Version = GetInventoryToolsPatchVersion(path) })
-                .Where(x => x.Version >= 0)
-                .OrderByDescending(x => x.Version)
-                .FirstOrDefault();
+            var latest = InventoryToolsProfile.FindLatestBundledPatch(assemblyDir);
 
-            if (latest == null)
+            if (latest is not { } patch)
             {
                 log.Warning($"[PluginJPHelper] InventoryTools bundled patch CSV not found in: {assemblyDir}");
                 return false;
             }
 
-            var fileName = Path.GetFileName(latest.Path);
+            var fileName = Path.GetFileName(patch.Path);
             var configCsvPath = Path.Combine(DictionaryDirectory(), fileName);
             var alreadyImported = File.Exists(configCsvPath)
                 && string.Equals(
@@ -3140,7 +3060,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
                 return true;
             }
 
-            File.Copy(latest.Path, configCsvPath, true);
+            File.Copy(patch.Path, configCsvPath, true);
             var result = ImportDictionaryCsv(pluginName, configCsvPath);
             if (result.StartsWith("CSV読込失敗", StringComparison.Ordinal)
                 || result.StartsWith("CSVがありません", StringComparison.Ordinal))
@@ -3149,7 +3069,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
                 return false;
             }
 
-            log.Information($"[PluginJPHelper] InventoryTools latest bundled CSV imported: v{latest.Version} / {result}");
+            log.Information($"[PluginJPHelper] InventoryTools latest bundled CSV imported: v{patch.Version} / {result}");
             return true;
         }
         catch (Exception ex)
