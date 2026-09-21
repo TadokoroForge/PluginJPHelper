@@ -81,13 +81,8 @@ public sealed class PluginDictionaryState
     public HashSet<string> DeletedKeys { get; set; } = new(StringComparer.Ordinal);
 }
 
-public sealed class DictionaryLocation : IEquatable<DictionaryLocation>
+public sealed record DictionaryLocation
 {
     public string Menu { get; set; } = string.Empty;
     public string Section { get; set; } = string.Empty;
-
-    public bool Equals(DictionaryLocation? other)
-        => other != null && string.Equals(Menu, other.Menu, StringComparison.Ordinal) && string.Equals(Section, other.Section, StringComparison.Ordinal);
-    public override bool Equals(object? obj) => obj is DictionaryLocation other && Equals(other);
-    public override int GetHashCode() => HashCode.Combine(Menu, Section);
 }
