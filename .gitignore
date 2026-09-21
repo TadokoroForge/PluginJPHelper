@@ -1,0 +1,33 @@
+# ==================================================
+# Plugin JP Helper
+# ==================================================
+
+# --- .NET / Dalamud ビルド生成物 ---
+bin/
+obj/
+release/
+
+# --- Visual Studio / JetBrains Rider ---
+.vs/
+.idea/
+*.user
+*.suo
+*.userprefs
+
+# --- ビルドログ ---
+*.binlog
+*.log
+
+# --- OS が生成するファイル ---
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ==================================================
+# 以下は配布・固定のため意図的に追跡している。無視しないこと。
+#   upload/*.zip                      GitHub Release へ配布するプラグインパッケージ
+#   .github/release-payload/          Release 公開用の分割ペイロード
+#   Dictionaries/                     公式・コミュニティ辞書（プラグイン同梱物）
+#   PluginJPHelper/packages.lock.json 依存パッケージのバージョン固定
+#   pluginmaster.json                 Dalamud プラグインマスター
+# ==================================================
