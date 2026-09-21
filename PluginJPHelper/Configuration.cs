@@ -37,13 +37,12 @@ public sealed class Configuration : IPluginConfiguration
         // 既に登録済みの設定にも不足キーワードだけを補完し、ユーザー設定は消さない。
         foreach (var (pluginName, artisanState) in Plugins)
         {
-            if (artisanState == null || !string.Equals(pluginName, "Artisan", StringComparison.OrdinalIgnoreCase)) continue;
+            if (artisanState == null || !ArtisanProfile.MatchesPluginName(pluginName)) continue;
 
             var keywords = (artisanState.WindowKeyword ?? string.Empty)
                 .Split('|', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
                 .ToList();
-            foreach (var required in new[] { "Artisan", "List Editor", "Processing List" })
-                if (!keywords.Contains(required, StringComparer.OrdinalIgnoreCase)) keywords.Add(required);
+            ArtisanProfile.EnsureWindowKeywords(keywords);
             artisanState.WindowKeyword = string.Join("|", keywords);
         }
 
