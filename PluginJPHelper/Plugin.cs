@@ -76,9 +76,6 @@ public sealed unsafe class Plugin : IDalamudPlugin
     private Hook<MenuItemBoolPtrDelegate>? menuItemBoolPtrHook;
     private Hook<BeginMenuDelegate>? beginMenuHook;
     [ThreadStatic] private static Stack<string>? windowStack;
-    [ThreadStatic] private static string rsrCurrentMenu = string.Empty;
-    [ThreadStatic] private static string rsrCurrentSection = string.Empty;
-    [ThreadStatic] private static string rsrPendingMenuCandidate = string.Empty;
     [ThreadStatic] private static int comboOpenDepth;
     private long comboHookCalls;
     private long comboTranslatedItems;
@@ -1105,9 +1102,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
         var w = windowName.Trim();
         return pluginName switch
         {
-            "RSR" => w.Contains("Rotation Solver Reborn", StringComparison.OrdinalIgnoreCase)
-                  || w.Contains("RotationSolverReborn", StringComparison.OrdinalIgnoreCase)
-                  || w.Contains("Rotation Solver", StringComparison.OrdinalIgnoreCase),
+            "RSR" => RsrProfile.MatchesWindow(w),
 
             "BMR" => w.Contains("BossMod Reborn", StringComparison.OrdinalIgnoreCase)
                   || w.Contains("Boss Mod Reborn", StringComparison.OrdinalIgnoreCase)
@@ -1127,37 +1122,10 @@ public sealed unsafe class Plugin : IDalamudPlugin
     }
 
     private void UpdateRsrNavigationContext(byte* label, bool selected)
-    {
-        if (!selected || label == null || !captureEnabled || capturePlugin != "RSR") return;
-        var raw = Marshal.PtrToStringUTF8((nint)label);
-        if (string.IsNullOrWhiteSpace(raw)) return;
-        var visible = VisibleLabel(raw);
-
-        // RSRの左メニューは別の子ウィンドウで描画されるため、
-        // CurrentWindowNameだけで判定すると取りこぼす。
-        // ただし誤分類を防ぐため、RSRソースで確認済みのメニュー名かジョブ名だけを候補にする。
-        if (RsrNavigationVocabulary.FixedMenus.Contains(visible) || RsrNavigationVocabulary.JobMenus.Contains(visible) || visible.StartsWith("Duty - ", StringComparison.Ordinal))
-        {
-            rsrPendingMenuCandidate = visible;
-            return;
-        }
-
-        // 画面内セクションはRSR本体ウィンドウ内でselectedになったものだけ採用する。
-        if (IsTargetWindow("RSR", CurrentWindowName) && RsrNavigationVocabulary.KnownSections.Contains(visible))
-            rsrCurrentSection = visible;
-    }
+        => RsrNavigationTracker.Observe(label, selected, captureEnabled, capturePlugin, CurrentWindowName);
 
     private void UpdateRsrNavigationContextAfterClick(string raw)
-    {
-        if (string.IsNullOrWhiteSpace(raw) || !captureEnabled || capturePlugin != "RSR") return;
-        var visible = VisibleLabel(raw);
-        if (RsrNavigationVocabulary.FixedMenus.Contains(visible) || RsrNavigationVocabulary.JobMenus.Contains(visible) || visible.StartsWith("Duty - ", StringComparison.Ordinal))
-        {
-            if (!string.Equals(rsrCurrentMenu, visible, StringComparison.Ordinal)) rsrCurrentSection = string.Empty;
-            rsrPendingMenuCandidate = visible;
-            rsrCurrentMenu = visible;
-        }
-    }
+        => RsrNavigationTracker.ObserveAfterClick(raw, captureEnabled, capturePlugin);
 
     private static string VisibleLabel(string source)
     {
@@ -1292,22 +1260,17 @@ public sealed unsafe class Plugin : IDalamudPlugin
 
         // v0.0.25: RSRサイドバーは「現在メニュー判定専用」。本文辞書へは登録しない。
         // これで Actions / Auto / Basic ... が各メニュー配下に重複する現象を除外する。
-        if (capturePlugin == "RSR" && isTargetWindow && currentWindow.Contains("Rotation Solver Side bar", StringComparison.OrdinalIgnoreCase))
+        if (isTargetWindow && RsrProfile.IsSideBarWindow(capturePlugin, currentWindow))
             return;
 
         if (captureEnabled && isTargetWindow)
         {
             // RSR左メニューは直前に描画されるため、最後に見つけたselectedな
             // 確認済みメニュー候補を、RSR本体の文字列を取得する瞬間に確定する。
-            if (capturePlugin == "RSR" && !string.IsNullOrWhiteSpace(rsrPendingMenuCandidate))
-            {
-                if (!string.Equals(rsrCurrentMenu, rsrPendingMenuCandidate, StringComparison.Ordinal))
-                    rsrCurrentSection = string.Empty;
-                rsrCurrentMenu = rsrPendingMenuCandidate;
-            }
+            RsrNavigationTracker.CommitPendingMenu(capturePlugin);
 
-            var menu = capturePlugin == "RSR" ? rsrCurrentMenu : string.Empty;
-            var section = capturePlugin == "RSR" ? rsrCurrentSection : string.Empty;
+            var menu = RsrProfile.MatchesPluginName(capturePlugin) ? RsrNavigationTracker.CurrentMenu : string.Empty;
+            var section = RsrProfile.MatchesPluginName(capturePlugin) ? RsrNavigationTracker.CurrentSection : string.Empty;
             var target = pluginCaptured[capturePlugin];
             var contextKey = string.Concat(menu, "\u001f", section, "\u001f", text);
             target.AddOrUpdate(contextKey,
@@ -1788,9 +1751,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
             {
                 current.Clear();
                 backgroundCaptured.Clear();
-                rsrCurrentMenu = string.Empty;
-                rsrCurrentSection = string.Empty;
-                rsrPendingMenuCandidate = string.Empty;
+                RsrNavigationTracker.Reset();
                 baselineCaptureEnabled = true;
                 captureEnabled = true;
                 SaveConfig();
@@ -1873,10 +1834,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
         var visible = source; var marker = source.IndexOf("##", StringComparison.Ordinal); if (marker > 0) visible = source[..marker];
         if (KeepAsIs.Labels.Contains(visible)) return true;
         if (ContainsJapanese(visible)) return true;
-        if (source.Contains("##Up", StringComparison.Ordinal) || source.Contains("##Down", StringComparison.Ordinal) ||
-            source.Contains("#####up", StringComparison.OrdinalIgnoreCase) || source.Contains("#####down", StringComparison.OrdinalIgnoreCase) ||
-            source.Contains("Rotation Solver Reborn Remove Territory", StringComparison.Ordinal)) return true;
-        if (visible.StartsWith("RSR has helped you by clicking actions ", StringComparison.Ordinal) && visible.EndsWith(" times.", StringComparison.Ordinal)) return true;
+        if (RsrProfile.IsUntranslatableLiteral(source) || RsrProfile.IsProgressClickCount(visible)) return true;
         foreach (var (name, state) in config.Plugins) if (GetActiveStandardDictionary(name).ContainsKey(visible) || state.UserOverrides.ContainsKey(visible)) return true;
         return false;
     }
@@ -1923,9 +1881,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
         config.CleanSlateMode = true;
         config.CaptureSchemaVersion = 3;
         config.DataResetVersion = 24;
-        rsrCurrentMenu = string.Empty;
-        rsrCurrentSection = string.Empty;
-        rsrPendingMenuCandidate = string.Empty;
+        RsrNavigationTracker.Reset();
         comboOpenDepth = 0;
         SaveConfig();
     }
@@ -1949,17 +1905,8 @@ public sealed unsafe class Plugin : IDalamudPlugin
         // 「原文」候補としてLocationsへ残ることがある。RSRでは標準辞書の
         // 日本語訳と完全一致するだけのキーは原文ではないので一覧から除外する。
         // 標準辞書の正式なキーそのものは必ず残す。
-        if (!string.Equals(pluginName, "RSR", StringComparison.Ordinal)) return false;
-        var standard = GetActiveStandardDictionary(pluginName);
-        if (standard.ContainsKey(key)) return false;
-
-        var matchCount = 0;
-        foreach (var kv in standard)
-        {
-            if (!string.Equals(kv.Value, key, StringComparison.Ordinal)) continue;
-            if (++matchCount > 0) return true;
-        }
-        return false;
+        if (!RsrProfile.MatchesPluginName(pluginName)) return false;
+        return RsrProfile.IsShadowKey(key, GetActiveStandardDictionary(pluginName));
     }
 
     private IEnumerable<KeyValuePair<string, string>> GetDictionaryCatalog(string pluginName)
