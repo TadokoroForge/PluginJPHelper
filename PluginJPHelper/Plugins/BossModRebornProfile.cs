@@ -8,7 +8,7 @@ internal sealed class BossModRebornProfile : IPluginProfile
     [
         "BossMod Reborn",
         "Boss Mod Reborn",
-        "BossModReborn",
+        "BossModReborn"
     ];
 
     public string Name => PluginName;

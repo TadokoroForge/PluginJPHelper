@@ -20,13 +20,13 @@ internal sealed class DalamudActProfile : IPluginProfile
         "PartyMonitorWindow",
         "StatsPanelWindow",
         "SkillMonitorWindow",
-        "SettingsWindow",
+        "SettingsWindow"
     ];
 
     public static bool MatchesPluginName(string? name)
         => string.Equals(name, PluginName, StringComparison.OrdinalIgnoreCase);
 
-    public static bool MatchesWindow(string windowName)
+    private static bool MatchesWindow(string windowName)
     {
         foreach (var keyword in WindowKeywords)
             if (windowName.Contains(keyword, StringComparison.OrdinalIgnoreCase))

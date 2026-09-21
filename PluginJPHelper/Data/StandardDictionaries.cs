@@ -13,8 +13,9 @@ internal static class StandardDictionaries
                 ["Target Fate priority"] = "FATE対象を優先",
                 ["Clicking actions random delay range."] = "アクション実行時のランダム遅延範囲",
                 ["How soon before countdown is finished to start casting or attacking."] = "カウントダウン終了の何秒前から詠唱・攻撃を開始するか",
-                ["The minimum time between updating RSR information. (Raising this will help with framerate issues but can cause issues with rotation performance)"] = "RSR情報を更新する最小間隔（長くすると負荷は下がりますが、ローテーション性能に影響する場合があります）",
-                                ["Description"] = "説明",
+                ["The minimum time between updating RSR information. (Raising this will help with framerate issues but can cause issues with rotation performance)"] =
+                    "RSR情報を更新する最小間隔（長くすると負荷は下がりますが、ローテーション性能に影響する場合があります）",
+                ["Description"] = "説明",
                 ["Status"] = "状態",
                 ["Holds Tech Step if no targets in range (Warning, will drift)"] = "範囲内に対象がいない場合はテクニカルステップを温存（使用タイミングがずれる場合があります）",
                 ["Holds Standard Step if no targets in range (Warning, will drift & Buff may fall off)"] = "範囲内に対象がいない場合はスタンダードステップを温存（使用タイミングがずれ、バフが切れる場合があります）",
@@ -38,17 +39,20 @@ internal static class StandardDictionaries
                 ["Delay autotarget."] = "自動ターゲットを遅延",
                 ["Prioritize Low HP targets instead of High HP targets when using Small Target and multiple Small targets present."] = "Small Targetで候補が複数いる場合、HPが低い対象を優先",
                 ["Prioritize Low HP targets instead of High HP targets when using Big Target and multiple Big targets present."] = "Big Targetで候補が複数いる場合、HPが低い対象を優先",
-                ["Set target to closest targetable enemy if no valid action target nearby and target not set while in combat (This works in Manual mode as well)"] = "戦闘中に有効な行動対象が近くになく未ターゲットなら、最も近い攻撃可能な敵を選択（Manualでも有効）",
+                ["Set target to closest targetable enemy if no valid action target nearby and target not set while in combat (This works in Manual mode as well)"] =
+                    "戦闘中に有効な行動対象が近くになく未ターゲットなら、最も近い攻撃可能な敵を選択（Manualでも有効）",
                 ["Only attack targets in view."] = "視界内の対象だけ攻撃",
                 ["Only attack targets in vision cone"] = "視野角内の対象だけ攻撃",
                 ["Move to the furthest position for targeting area movement actions."] = "範囲移動アクションでは最も遠い位置へ移動",
                 ["The size of the sector angle that can be selected as the moveable target"] = "移動対象として選択できる扇形の角度",
                 ["Use movement actions towards the object/mob in the center of the screen"] = "画面中央のオブジェクト／敵へ向かう移動アクションを使用",
-                ["If enabled, movement actions target the object or mob at the center of your screen. If disabled, they target the object or mob your character is facing."] = "有効時は、移動アクションの対象を画面中央のオブジェクト／敵にします。無効時は、キャラクターが向いているオブジェクト／敵を対象にします。",
+                ["If enabled, movement actions target the object or mob at the center of your screen. If disabled, they target the object or mob your character is facing."] =
+                    "有効時は、移動アクションの対象を画面中央のオブジェクト／敵にします。無効時は、キャラクターが向いているオブジェクト／敵を対象にします。",
                 ["If target's TTK is higher than this, regard it as boss."] = "対象のTTKがこの値より長ければボスとして扱う",
                 ["If target's TTK is lower than this, regard it as dying."] = "対象のTTKがこの値より短ければ瀕死として扱う",
                 ["If target's HP percentage is lower than this, regard it as dying."] = "対象のHP割合がこの値より低ければ瀕死として扱う",
-                ["Enemy targeting logic. Adding more options cycles them when using /rotation Auto.\nUse /rotation Settings TargetingTypes add <option> to add,\n/rotation Settings TargetingTypes remove <option> to remove,\nand /rotation Settings TargetingTypes removeall to remove all options."] = "敵のターゲット選択方式。複数登録すると /rotation Auto 使用時に順番に切り替わる。\n追加: /rotation Settings TargetingTypes add <option>\n削除: /rotation Settings TargetingTypes remove <option>\n全削除: /rotation Settings TargetingTypes removeall",
+                ["Enemy targeting logic. Adding more options cycles them when using /rotation Auto.\nUse /rotation Settings TargetingTypes add <option> to add,\n/rotation Settings TargetingTypes remove <option> to remove,\nand /rotation Settings TargetingTypes removeall to remove all options."] =
+                    "敵のターゲット選択方式。複数登録すると /rotation Auto 使用時に順番に切り替わる。\n追加: /rotation Settings TargetingTypes add <option>\n削除: /rotation Settings TargetingTypes remove <option>\n全削除: /rotation Settings TargetingTypes removeall",
                 ["Configure basic settings."] = "基本設定",
                 ["Configure general action usage and control settings."] = "アクション使用と操作の一般設定",
                 ["Configure optional helpful features."] = "補助機能の設定",
@@ -74,8 +78,10 @@ internal static class StandardDictionaries
                 ["Change how RSR automatically uses actions"] = "RSRの自動アクション使用方法を変更",
                 ["Make /rotation Auto a toggle command. (Normal behavior cycles between targeting settings)"] = "/rotation Auto をON/OFF切替コマンドにする（通常はターゲット設定を順番に切替）",
                 ["Make /rotation Manual a toggle command."] = "/rotation Manual をON/OFF切替コマンドにする",
-                ["Start the addon in Auto mode. When out of combat or when combat starts, switches the target according to the set condition. \n Optionally: You can add the target type to the end of the command you want RSR to do. For example: /rotation Auto Big"] = "Autoモードで開始。非戦闘時または戦闘開始時に設定条件でターゲットを切り替える。\n必要ならコマンド末尾にターゲット種類を指定可能。例: /rotation Auto Big",
-                ["Start the addon in Manual mode. You need to choose the target manually. This will bypass any engage settings that you have set up and will start attacking immediately once something is targeted."] = "Manualモードで開始。ターゲットは手動選択。交戦設定を無視し、対象を選ぶとすぐ攻撃を開始する。",
+                ["Start the addon in Auto mode. When out of combat or when combat starts, switches the target according to the set condition. \n Optionally: You can add the target type to the end of the command you want RSR to do. For example: /rotation Auto Big"] =
+                    "Autoモードで開始。非戦闘時または戦闘開始時に設定条件でターゲットを切り替える。\n必要ならコマンド末尾にターゲット種類を指定可能。例: /rotation Auto Big",
+                ["Start the addon in Manual mode. You need to choose the target manually. This will bypass any engage settings that you have set up and will start attacking immediately once something is targeted."] =
+                    "Manualモードで開始。ターゲットは手動選択。交戦設定を無視し、対象を選ぶとすぐ攻撃を開始する。",
                 ["Start in Target-Only mode. RSR will auto-select targets per normal logic but will not perform any actions."] = "Target-Onlyモードで開始。通常ロジックで自動ターゲットするが、アクションは実行しない。",
                 ["Stop the addon. Always remember to turn it off when it is not in use!"] = "RSRを停止。使用しない時は必ずOFFにする。",
                 ["Do the next action."] = "次のアクションを実行",
@@ -118,7 +124,8 @@ internal static class StandardDictionaries
                 ["Duty Start: "] = "コンテンツ開始: ",
                 ["Duty End: "] = "コンテンツ終了: ",
                 ["Below are plugins used by Autoduty and their current states"] = "AutoDutyが使用するプラグインと現在の状態",
-                ["While the RSR Team has made effort to make RSR compatible with Autoduty, please keep in mind that RSR is not designed with botting in mind."] = "RSRはAutoDutyとの互換性に配慮されていますが、自動周回用途を前提に設計されたものではありません。",
+                ["While the RSR Team has made effort to make RSR compatible with Autoduty, please keep in mind that RSR is not designed with botting in mind."] =
+                    "RSRはAutoDutyとの互換性に配慮されていますが、自動周回用途を前提に設計されたものではありません。",
                 ["Show tooltips"] = "ツールチップを表示",
                 ["Show Original Cooldown"] = "元のクールダウン表示を使用",
                 ["Always Show Cooldowns"] = "クールダウンを常に表示",
@@ -154,7 +161,8 @@ internal static class StandardDictionaries
                 ["Crucible of the Unbroken"] = "不壊の坩堝",
                 ["BMR Integration Enabled"] = "BMR連携を有効化",
                 ["Use BMR intergration to verify safety of movement actions/actions that cause movement for automatic usage. (Experimental)"] = "自動使用時、移動アクション／移動を伴うアクションの安全性をBMR連携で確認（実験的）",
-                ["Use BMR intergration to verify safety of movement actions/actions that cause movement for intercepted usage. (Experimental)"] = "割り込み使用時、移動アクション／移動を伴うアクションの安全性をBMR連携で確認（実験的）",
+                ["Use BMR intergration to verify safety of movement actions/actions that cause movement for intercepted usage. (Experimental)"] =
+                    "割り込み使用時、移動アクション／移動を伴うアクションの安全性をBMR連携で確認（実験的）",
                 ["Nearest"] = "最も近い敵",
                 ["Manual"] = "手動ターゲット",
                 ["Highest Max HP"] = "最大HPが最も高い敵",
@@ -214,9 +222,12 @@ internal static class StandardDictionaries
                 ["System Action"] = "システムアクション",
                 ["Analyzes PvE combat information in every frame and finds the best action."] = "毎フレームPvE戦闘情報を解析し、最適なアクションを選択します。",
                 ["Click to view plugin compatibility information. Right-click to dismiss warning."] = "プラグインの互換性情報を表示します。右クリックで警告を閉じます。",
-                ["Used to customize when RSR uses specific actions automatically. Click on an action's icon in the left list. Below, you may set the conditions for when that specific action is used. Each action can have different conditions to override the default rotation behavior."] = "RSRが特定のアクションを自動使用する条件を設定します。左の一覧からアクションのアイコンを選び、そのアクション専用の使用条件を設定できます。設定した条件は通常のローテーション動作より優先されます。",
-                ["This includes almost all information available in one combat frame, including the status of all party members, hostile target statuses, skill cooldowns, MP and HP of characters, character locations, hostile target casting status, combo state, combat duration, player level, etc.\n\nIt will then highlight the best action on the hotbar, or help you click it."] = "1フレーム内で取得できる戦闘情報（PTメンバーの状態、敵のステータス、スキルのリキャスト、HP／MP、位置、敵の詠唱、コンボ状態、戦闘時間、レベルなど）を解析します。\n\nその結果から最適なアクションをホットバー上で強調表示し、必要に応じて実行を補助します。",
-                ["This is designed for GENERAL COMBAT, not for Savage or Ultimate content. \n\nUse it carefully! While not designed specifically for Savage or Ultimate content RSR works fine in them, but it will not solve mechanics for you. Pay attention and use macros."] = "これは一般戦闘向けに設計されており、零式・絶専用ではありません。\n\n零式や絶でも動作しますが、ギミックを自動攻略するものではありません。状況を確認し、必要に応じてマクロを使用してください。",
+                ["Used to customize when RSR uses specific actions automatically. Click on an action's icon in the left list. Below, you may set the conditions for when that specific action is used. Each action can have different conditions to override the default rotation behavior."] =
+                    "RSRが特定のアクションを自動使用する条件を設定します。左の一覧からアクションのアイコンを選び、そのアクション専用の使用条件を設定できます。設定した条件は通常のローテーション動作より優先されます。",
+                ["This includes almost all information available in one combat frame, including the status of all party members, hostile target statuses, skill cooldowns, MP and HP of characters, character locations, hostile target casting status, combo state, combat duration, player level, etc.\n\nIt will then highlight the best action on the hotbar, or help you click it."] =
+                    "1フレーム内で取得できる戦闘情報（PTメンバーの状態、敵のステータス、スキルのリキャスト、HP／MP、位置、敵の詠唱、コンボ状態、戦闘時間、レベルなど）を解析します。\n\nその結果から最適なアクションをホットバー上で強調表示し、必要に応じて実行を補助します。",
+                ["This is designed for GENERAL COMBAT, not for Savage or Ultimate content. \n\nUse it carefully! While not designed specifically for Savage or Ultimate content RSR works fine in them, but it will not solve mechanics for you. Pay attention and use macros."] =
+                    "これは一般戦闘向けに設計されており、零式・絶専用ではありません。\n\n零式や絶でも動作しますが、ギミックを自動攻略するものではありません。状況を確認し、必要に応じてマクロを使用してください。",
                 [" Defense Area Ability"] = " 範囲防御アビリティ",
                 [" Heal Area Ability"] = " 範囲回復アビリティ",
                 [" Move Forward Ability"] = " 前進アビリティ",
@@ -242,7 +253,8 @@ internal static class StandardDictionaries
                 ["AutoRetainer is installed and enabled"] = "AutoRetainer は導入済み・有効",
                 ["Avarice is not enabled"] = "Avarice は無効です",
                 ["Backup Configs"] = "設定をバックアップ",
-                ["Boss Mod is installed and enabled. Both Boss Mods cannot be installed and enabled at the same time. Please disable Boss Mod."] = "Boss Mod が導入済み・有効です。Boss Mod と BossMod Reborn は同時に有効化できません。Boss Mod を無効にしてください。",
+                ["Boss Mod is installed and enabled. Both Boss Mods cannot be installed and enabled at the same time. Please disable Boss Mod."] =
+                    "Boss Mod が導入済み・有効です。Boss Mod と BossMod Reborn は同時に有効化できません。Boss Mod を無効にしてください。",
                 ["BossModReborn is installed and enabled"] = "BossMod Reborn は導入済み・有効",
                 ["Cancel auto mode if combat starts early during countdown"] = "カウントダウン中に早く戦闘が始まったらAutoモードを解除",
                 ["Cancel cast in PvP if the target gains Guard and the action does not ignore Guard."] = "PvPで対象が防御を使用し、その防御を無視できないアクションなら詠唱を中止",

@@ -26,7 +26,7 @@ internal static class RsrNavigationVocabulary
     };
 
     public static readonly (string Key, string Label)[] BaseDictionaryTabs =
-    {
+    [
         ("Main", "メイン"),
         ("Actions", "アクション"),
         ("List", "リスト"),
@@ -37,6 +37,6 @@ internal static class RsrNavigationVocabulary
         ("Duty", "コンテンツ"),
         ("Extra", "その他"),
         ("Debug", "デバッグ"),
-        ("AutoDuty", "AutoDuty"),
-    };
+        ("AutoDuty", "AutoDuty")
+    ];
 }

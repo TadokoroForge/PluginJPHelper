@@ -1,17 +1,11 @@
 namespace PluginJPHelper.Plugins;
 
-internal sealed class GenericPluginProfile : IPluginProfile
+internal sealed class GenericPluginProfile(string name, string? windowKeyword) : IPluginProfile
 {
-    private readonly string[] keywords;
+    private readonly string[] keywords = (windowKeyword ?? string.Empty)
+        .Split('|', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
-    public GenericPluginProfile(string name, string? windowKeyword)
-    {
-        Name = name;
-        keywords = (windowKeyword ?? string.Empty)
-            .Split('|', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-    }
-
-    public string Name { get; }
+    public string Name { get; } = name;
 
     public int SortKey => 10;
 

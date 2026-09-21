@@ -219,7 +219,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
             var rsr = config.Plugins["RSR"];
             rsr.Locations.Clear();
             foreach (var kv in RsrBundledLocations.ByKey)
-                rsr.Locations[kv.Key] = new DictionaryLocation { Menu = kv.Value.Menu, Section = kv.Value.Section };
+                rsr.Locations[kv.Key] = new() { Menu = kv.Value.Menu, Section = kv.Value.Section };
             config.CleanSlateMode = false;
             rsr.Enabled = true;
             config.DataResetVersion = 27;
@@ -232,9 +232,9 @@ public sealed unsafe class Plugin : IDalamudPlugin
             // 既存のユーザー訳は保持し、翻訳が空欄の項目も辞書一覧へ出るよう Locations を追加する。
             var rsr = config.Plugins["RSR"];
             foreach (var kv in RsrBundledLocations.ByKey)
-                rsr.Locations[kv.Key] = new DictionaryLocation { Menu = kv.Value.Menu, Section = kv.Value.Section };
+                rsr.Locations[kv.Key] = new() { Menu = kv.Value.Menu, Section = kv.Value.Section };
             foreach (var kv in RsrCapturedLocationsV42.ByKey)
-                rsr.Locations[kv.Key] = new DictionaryLocation { Menu = kv.Value.Menu, Section = kv.Value.Section };
+                rsr.Locations[kv.Key] = new() { Menu = kv.Value.Menu, Section = kv.Value.Section };
             config.CleanSlateMode = false;
             rsr.Enabled = true;
             config.DataResetVersion = 42;
@@ -1636,7 +1636,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
             // 1箇所だけ特定できた場合のみ所属を付け、0件/複数箇所は未分類として保持する。
             // これによりBMR/BMなど、メニュー判定を持たない対象でも取得停止後すぐ翻訳辞書で編集できる。
             if (contexts.Length == 1) state.Locations[group.Key] = contexts[0];
-            else state.Locations[group.Key] = new DictionaryLocation { Menu = string.Empty, Section = string.Empty };
+            else state.Locations[group.Key] = new() { Menu = string.Empty, Section = string.Empty };
         }
         SaveConfig();
     }
@@ -2151,7 +2151,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
                 if (string.IsNullOrWhiteSpace(japanese)) state.UserOverrides.Remove(english);
                 else state.UserOverrides[english] = japanese;
                 if (!string.IsNullOrWhiteSpace(cols[1]) || !string.IsNullOrWhiteSpace(cols[2]))
-                    state.Locations[english] = new DictionaryLocation { Menu = cols[1], Section = cols[2] };
+                    state.Locations[english] = new() { Menu = cols[1], Section = cols[2] };
                 imported++;
             }
             state.LastCsvPath = Path.GetFullPath(path);

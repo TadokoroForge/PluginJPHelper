@@ -16,7 +16,7 @@ internal static class PluginProfileRegistry
     public static IReadOnlyList<IPluginProfile> All => Profiles;
 
     public static IPluginProfile? Find(string pluginName)
-        => ByName.TryGetValue(pluginName, out var profile) ? profile : null;
+        => ByName.GetValueOrDefault(pluginName);
 
     public static IPluginProfile Resolve(string pluginName, string? customWindowKeyword)
         => Find(pluginName) ?? new GenericPluginProfile(pluginName, customWindowKeyword);
