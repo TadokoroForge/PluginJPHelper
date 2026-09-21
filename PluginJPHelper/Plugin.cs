@@ -1554,7 +1554,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
     }
 
     private static bool AllowsPartialTranslation(string pluginName)
-        => string.Equals(pluginName, "DalamudACT", StringComparison.OrdinalIgnoreCase);
+        => DalamudActProfile.MatchesPluginName(pluginName);
 
 
     // v0.0.66: RenderText系は「現在のウィンドウがどの対象プラグインか」を確定してから、
@@ -1639,7 +1639,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
         // ImDrawList.AddText() で短縮ジョブ名を直接描画する。
         // この経路は通常の Text/RenderText フックを通らないため、DalamudACT の
         // ウィンドウ内だけを対象に最小限の完全一致置換を行う。
-        if (drawingOwnUi || textBegin == null || !IsCurrentWindowOwnedBy("DalamudACT"))
+        if (drawingOwnUi || textBegin == null || !IsCurrentWindowOwnedBy(DalamudActProfile.PluginName))
         {
             drawListAddTextVec2Hook!.Original(drawList, pos, col, textBegin, textEnd);
             return;
@@ -1665,7 +1665,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
                 if (captureEnabled || baselineCaptureEnabled)
                     CapturePointer(textBegin, textEnd, "DrawListAddText");
 
-                if (TryGetTranslationForPlugin("DalamudACT", source, out var translated) &&
+                if (TryGetTranslationForPlugin(DalamudActProfile.PluginName, source, out var translated) &&
                     !string.IsNullOrWhiteSpace(translated) &&
                     !string.Equals(source, translated, StringComparison.Ordinal))
                 {
@@ -1976,13 +1976,7 @@ public sealed unsafe class Plugin : IDalamudPlugin
                   || w.Contains("Boss Mod", StringComparison.OrdinalIgnoreCase))
                   && !w.Contains("Reborn", StringComparison.OrdinalIgnoreCase),
 
-            "DalamudACT" => w.Contains("DalamudACT", StringComparison.OrdinalIgnoreCase)
-                         || w.Contains("CombatTimelineWindow", StringComparison.OrdinalIgnoreCase)
-                         || w.Contains("StatusObserverWindow", StringComparison.OrdinalIgnoreCase)
-                         || w.Contains("PartyMonitorWindow", StringComparison.OrdinalIgnoreCase)
-                         || w.Contains("StatsPanelWindow", StringComparison.OrdinalIgnoreCase)
-                         || w.Contains("SkillMonitorWindow", StringComparison.OrdinalIgnoreCase)
-                         || w.Contains("SettingsWindow", StringComparison.OrdinalIgnoreCase),
+            "DalamudACT" => DalamudActProfile.MatchesWindow(w),
 
             _ => config.Plugins.TryGetValue(pluginName, out var custom)
                  && !string.IsNullOrWhiteSpace(custom.WindowKeyword)
